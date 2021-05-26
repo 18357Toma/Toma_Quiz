@@ -13,6 +13,14 @@ class MenuPage:
     self.user_label=Label(self.quiz_frame, text="Hi there! Welcome to the mental health quiz. \n Please enter your name below and press start to begin:", font=("Helvetica","14"),bg=background_color)
     self.user_label.grid(row=1, column=0, padx=60, pady=20)
 
+    #Enter name box.
+    self.entry_box=Entry(self.quiz_frame)
+    self.entry_box.grid(row=2, column = 0, padx=20, pady=20, ipadx=60, ipady=10)
+    self.var1=IntVar() #Holds the value of radio buttons.
+    #Continue button.
+    self.continue_button = Button(self.quiz_frame, text="START", font=("Helvetica", "14", 'bold'), foreground = 'black', bg= '#D9EAD3', highlightthickness=2, highlightbackground='black', cursor = 'hand2', activebackground='light cyan')
+    self.continue_button.grid(row=3, column=0, padx=20, pady=20, ipadx=20, ipady=10)
+
 
 if __name__== "__main__": #If this is the file name then it will be able to run.
   root = Tk() #Creates Window.
