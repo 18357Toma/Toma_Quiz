@@ -33,14 +33,17 @@ class MenuPage:
       self.start_button.grid(row=4, column=2, padx=20, pady=30, ipadx=30, ipady=10)
 
       #Dark theme button.
-      self.theme1_button = Button(self.quiz_frame, text="Dark theme", font=("Helvetica","12", 'bold'), foreground = 'black', bg=background_color, padx=10, pady=10, background = "dark gray", highlightthickness=2, highlightbackground='black', activebackground='light gray', relief= FLAT)
+      self.theme1_button = Button(self.quiz_frame, text="Dark theme", font=("Helvetica","12", 'bold'), foreground = 'black', bg=background_color, padx=10, pady=10, background = "dark gray", highlightthickness=2, highlightbackground='black', activebackground='light gray', relief= FLAT, command=self.dark_theme)
       self.theme1_button.grid(row=0, column=1)
 
       #Light theme button.
       self.theme2_button = Button(self.quiz_frame, text="Light theme", font=("Helvetica","12", 'bold'), foreground = 'black', bg=background_color, padx=10, pady=10, background = "white", highlightthickness=2, highlightbackground='black',  activebackground='light gray', relief= FLAT)
       self.theme2_button.grid(row=0, column=3)
 
-
+    def dark_theme(self):
+      self.quiz_frame.destroy()
+      DarkMenuPage(root)
+    
 
 class DarkMenuPage:
     def __init__(self, parent):
@@ -70,9 +73,12 @@ class DarkMenuPage:
       self.theme1_button.grid(row=0, column=1)
 
       #Light theme button.
-      self.theme2_button = Button(self.quiz_frame, text="Light theme", font=("Helvetica","12", 'bold'), foreground = 'black', bg=background_color, padx=10, pady=10, background = "white", highlightthickness=2, highlightbackground='white',  activebackground='light gray', relief= FLAT)
+      self.theme2_button = Button(self.quiz_frame, text="Light theme", font=("Helvetica","12", 'bold'), foreground = 'black', bg=background_color, padx=10, pady=10, background = "white", highlightthickness=2, highlightbackground='white',  activebackground='light gray', relief= FLAT, command=self.light_theme)
       self.theme2_button.grid(row=0, column=3)
 
+    def light_theme(self):
+      self.quiz_frame.destroy()
+      MenuPage(root)
 
 #Run Programe.
 if __name__== "__main__": #If this is the file name then it will be able to run.
