@@ -15,9 +15,26 @@ score = 0
 #Global
 global question_answer
 
+question_answer = {
+  1: ["How much sleep on average do you think teenagers need in order to function at their best?", "6 hours", "8 - 10 hours", "12 hours", "Any amount of sleep", 2],
 
-#geometry #fixed window size dimensions.
-#messagebox.showinfo() #error prevention/error messages.
+  2: [" What is the difference between mental health and mental illness?" , "There isn’t a difference." , "Mental illnesses are untreatable whereas mental health can be cared for." , "Illnesses can affect a person’s ability to perform for a long period of time whereas mental health is the state of your emotional well being that can be good or bad and branches off into mental illness." , "Mental health is to do with the physical wellbeing of someone whereas mental illnesses affect the brain’s ability to function." , "Illnesses can affect a person’s ability to perform for a long period of time whereas mental health is the state of your emotional well being that can be good or bad and branches off into mental illness." , 3],
+
+  3: ["What type of people are affected by mental health issues?" , "Usually teenagers." , "People who get bullied at school." , "Depressed kids." , "A person of any age with any reason." , "A person of any age with any reason." , 4],
+
+  4: ["How should you approach someone that looks upset?" , "Be sincere and ask if there’s anything you can do for them, if there’s nothing then show your sympathy and let them have space." , "Punch them, pull their hair and push them to the ground saying “Stop being a cry baby!”." , "Insist on helping them with anything you think you can even if they say no and ask if they are okay throughout the day." , "Avoid approaching them, give them their space and let them deal with it on their own.", "Be sincere and ask if there’s anything you can do for them, if there’s nothing then show your sympathy and let them have space." , 1],
+  5: ["How many people have been affected by mental health in New Zealand?" , "10." , "50%" , "1 in 4 people" , "Everyone" , "Everyone" , 4],
+
+  6: ["What is a good way to cope with poor mental health?" , "Eat, eat, eat and eat the feelings away." , "Take time to enjoy things such as hobbies, things you are good at and talk to someone if you feel it would help release the stress." , "Try to stay occupied by joining different clubs, keeping your mind on school work and being social all the time to keep your thoughts away from the problem." , "Involve yourself more in class or sports and push yourself to the limits to distract you from the problem." , "Take time to enjoy things such as hobbies, things you are good at and talk to someone if you feel it would help release the stress.", 2],
+
+  7: ["Which Mental health issue affects people the most?" , "Paranoia (distrust of others or feeling like someone is after you)." , "Depression (persistent upset emotions or lack of interest in things, significantly affecting life activities)." , "Eating disorder (abnormal/unusual and unhealthy eating habits)." , "OCD (Obsessive compulsive disorder, repeating behavioural habits due to immoderate thoughts)." , "Depression (persistent upset emotions or lack of interest in things, significantly affecting life activities)." , 2],
+
+  8: ["What is the best thing to do when you see someone enjoying their day?" , "Nothing, or vibe with them." , "Ruin their day." , "Punch them." , "Make jokes and laugh at them with friends.", "Nothing, or vibe with them.", 1],
+
+  9: ["Do people who suffer from serious mental issues deserve special treatment?" , "No, I think we should punch them.", "Yes, it’s nearly impossible to live through life with such difficult problems. We should always do things for them to support them and help them do daily activities." , "Acknowledge that they have struggles and don’t persist in bringing them up. Sometimes it’s best to treat them like you should treat anyone, with respect, not trying to remind them of their problems and not treating them like a child.", "Treat them with anything you can such as helping them grab their food at lunch or helping out with school work. Never let them be on their own to do things because they need help." , "Acknowledge that they have struggles and don’t persist in bringing them up. Sometimes it’s best to treat them like you should treat anyone, with respect, not trying to remind them of their problems and not treating them like a child." , 3],
+
+  10: ["What shouldn’t you do to someone who is having a rough time with their mental wellbeing?" , "Give them coffee." , "Suggest different ways of distractions such as  colouring a book." , "Offer them to go out into a better space or even go for a run with them." , "Punch them." , "Punch them." , 4],
+}
 
 #Classes.
 
@@ -85,8 +102,13 @@ class MenuPage:
 
 class QuizPage:
   def __init__(self, parent):
+      self.bg_image1 = Image.open("lightbackground.png") 
+      self.bg_image1 = ImageTk.PhotoImage(self.bg_image1)
+      base.configure(bg = background_color) 
+      #Setting up the frame.
       self.quiz_frame = Frame(parent)
-      self.quiz_frame.grid()
+      self.quiz_frame.grid() #Grid/table structure window.
+      base.geometry("1050x600") #Geometry used to create a fixed window size/window dimensions.
 
 
 class DarkMenuPage:
@@ -152,7 +174,14 @@ class DarkMenuPage:
 
 
 class DarkQuizPage:
-  pass
+  def __init__(self, parent):
+      self.bg_image1 = Image.open("darkbackground.png") 
+      self.bg_image1 = ImageTk.PhotoImage(self.bg_image1)
+      base.configure(bg = background_color2) 
+      #Setting up the frame.
+      self.quiz_frame = Frame(parent)
+      self.quiz_frame.grid() #Grid/table structure window.
+      base.geometry("1050x600") #Geometry used to create a fixed window size/window dimensions.
 
 
 #Run Programe.
