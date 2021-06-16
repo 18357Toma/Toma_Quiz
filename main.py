@@ -36,6 +36,17 @@ question_answer = {
   10: ["What shouldn’t you do to someone who is having a rough time with their mental wellbeing?" , "Give them coffee." , "Suggest different ways of distractions such as  colouring a book." , "Offer them to go out into a better space or even go for a run with them." , "Punch them." , "Punch them." , 4],
 }
 
+#Functions.
+
+def shuffle():
+  global qnum 
+  qnum = random.randint (1,10)
+  if qnum not in asked:
+    asked.append(qnum)
+  elif qnum in asked:
+    shuffle()
+
+
 #Classes.
 
 class MenuPage:
@@ -100,16 +111,6 @@ class MenuPage:
       elif len(name) >10:
         messagebox.showerror("Name error:", "Please check that you have entered a name up to 10 characters.")
 
-class QuizPage:
-  def __init__(self, parent):
-      self.bg_image1 = Image.open("lightbackground.png") 
-      self.bg_image1 = ImageTk.PhotoImage(self.bg_image1)
-      base.configure(bg = background_color) 
-      #Setting up the frame.
-      self.quiz_frame = Frame(parent)
-      self.quiz_frame.grid() #Grid/table structure window.
-      base.geometry("1050x600") #Geometry used to create a fixed window size/window dimensions.
-
 
 class DarkMenuPage:
   def __init__(self, parent):
@@ -121,7 +122,7 @@ class DarkMenuPage:
       self.quiz_frame.grid() #Grid/table structure window.
       base.geometry("1050x600") #Geometry used to create a fixed window size/window dimensions.
 
-      self.image_label= Label(self.quiz_frame, image=self.bg_image1)
+      self.image_label= Label(self.quiz_frame, image = self.bg_image1)
       self.image_label.place(x=0, y=0, relwidth=1, relheight=1) # make label l to fit the parent window always
 
       #Label widget for heading.
@@ -171,6 +172,27 @@ class DarkMenuPage:
         messagebox.showerror("Name error:", "Please check that you have entered a name.")
       elif len(name) >10:
         messagebox.showerror("Name error:", "Please check that you have entered a name up to 10 characters.")
+
+
+class QuizPage:
+  def __init__(self, parent):
+      self.bg_image1 = Image.open("lightbackground.png") 
+      self.bg_image1 = ImageTk.PhotoImage(self.bg_image1)
+      base.configure(bg = background_color) 
+      
+      #Setting up the frame.
+      self.quiz_frame = Frame(parent)
+      self.quiz_frame.grid() #Grid/table structure window.
+      base.geometry("1050x600") #Geometry used to create a fixed window size/window dimensions.
+
+      self.image_label = Label(self.quiz_frame, image = self.bg_image1)
+      self.image_label.place(x=0, y=0, relwidth=1, relheight=1) # make label l to fit the parent window always
+
+      shuffle()
+    
+       #question
+      self.question_label = Label(self.quiz_frame, text = question_answer[qnum][0], font =("Helvitica","16", "bold"), foreground = 'black', bg = '#d8e9da', highlightbackground = 'white', highlightthickness = 2)
+      self.question_label.grid(row = 1 , padx = 20 , pady = 20, ipady = 10, ipadx = 10)
 
 
 class DarkQuizPage:
