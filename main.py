@@ -251,25 +251,21 @@ class QuizPage:
       if choice == question_answer[qnum][6]: #If last question is right answer.
         score +=1
         total_score.configure(text= "Score :" + score)
-        self.next_button.config(text="Next")
       else: #If last question was wrong answer.
         score +=0
         option_choice.configure(text= "Incorrect:" + question_answer[qnum][5], wraplength = 300)
-        self.next_button.config(text="Next")
     else:
       if option_choice == 0: #Check if user made a choice.
-        self.next_button.config(text="Sorry you didn't select anything, please retry")
+        self.score_label.config(text="Sorry you didn't select anything, please retry")
         option_choice=self.value.get()
       else: #If they made choice that isn't last question.
         if option_choice == question_answer[qnum][6]: #If user is right.
           score+=1
           total_score.configure(text=score)
-          self.next_button.config(text="Next")
           self.question_change() #Run method for next question to come up.
         else: #If the user chooses wrong answer.
           score +=0
           total_score.configure(text="Incorrect:" + question_answer[qnum][5], wraplength = 300)
-          self.next_button.configure(text="Next")
           self.question_change()
 
 
@@ -291,7 +287,7 @@ class DarkQuizPage:
       #self.image_label.grid(column = 0, row = 0)
 
       #question
-      self.question_label = Label(self.quiz_frame, text = question_answer[qnum][0], font =("Helvitica","16", "bold"), foreground = 'white', bg = '#co9891', highlightbackground = 'white', highlightthickness = 2, wraplength = 600)
+      self.question_label = Label(self.quiz_frame, text = question_answer[qnum][0], font =("Helvitica","16", "bold"), foreground = 'white', bg = '#c09891', highlightbackground = 'white', highlightthickness = 2, wraplength = 600)
       self.question_label.grid(column = 1, row = 0, pady=10, padx=10)
 
       #radio button 1.
@@ -316,7 +312,7 @@ class DarkQuizPage:
       self.exit_button.grid(row = 6, column = 0, padx = 20, pady = 20, ipadx = 20, ipady = 10)
 
       #Score label.
-      self.score_label=Label(self.quiz_frame, text="TOTAL SCORE", font=("Helvetica", "14", "bold"), bg = background_color2)
+      self.score_label=Label(self.quiz_frame, text="TOTAL SCORE", font=("Helvetica", "14", "bold"), foreground = 'white', bg = background_color2)
       self.score_label.grid(row=6, column=1)
 
       #Next button.
@@ -348,25 +344,21 @@ class DarkQuizPage:
       if choice == question_answer[qnum][6]: #If last question is right answer.
         score +=1
         total_score.configure(text= "Score :" + score)
-        self.next_button.config(text="Next")
       else: #If last question was wrong answer.
         score +=0
         option_choice.configure(text= "Incorrect:" + question_answer[qnum][5])
-        self.next_button.config(text="Next")
     else:
       if option_choice == 0: #Check if user made a choice.
-        self.next_button.config(text="Sorry you didn't select anything, please retry")
+        self.score_label.config(text="Sorry you didn't select anything, please retry")
         option_choice=self.value.get()
       else: #If they made choice that isn't last question.
         if option_choice == question_answer[qnum][6]: #If user is right.
           score+=1
           total_score.configure(text=score)
-          self.next_button.config(text="Next")
           self.question_change() #Run method for next question to come up.
         else: #If the user chooses wrong answer.
           score +=0
-          total_score.configure(text="Incorrect:" + question_answer[qnum][5])
-          self.next_button.configure(text="Next")
+          total_score.configure(text="Incorrect:" + question_answer[qnum][5], foreground = 'white')
           self.question_change()
 
 
