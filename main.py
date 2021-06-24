@@ -16,25 +16,25 @@ score = 0
 global question_answer
 
 question_answer = {
-  1: ["It doesn’t matter how much sleep you get, you can always function your best.", "True", "False. 8 - 10 hours is recommended.", "It depends on the day.", "Any amount of sleep is okay as long as you have naps in the day.", "(Varied age groups have different times recommended but from 13 - 18 years old, 8 - 10 hours sleep is suggested)." , 2],
+  1: ["It doesn’t matter how much sleep you get, you can always function your best.", "True", "False. 8 - 10 hours is recommended.", "It depends on the day.", "Any amount of sleep is okay as long as you have naps in the day.", "Varied age groups have different times recommended but from 13 - 18 years old, 8 - 10 hours sleep is suggested." , 2],
 
-  2: [" What is the difference between mental health and mental illness?" , "There isn’t a difference." , "Mental illnesses are untreatable whereas mental health can be cared for." , "Illness is branched from mental health  and can affect a person’s performance, mental health is the state of your emotional well being." , "Mental health is physical wellbeing whereas mental illnesses affect the brain’s ability to function." , "(Although the terms are misunderstood a lot, it is good to understand that mental health doesn’t only refer to disorders, and mental illnesses aren’t only associated with feelings)." , 3],
+  2: [" What is the difference between mental health and mental illness?" , "There isn’t a difference." , "Mental illnesses are untreatable whereas mental health can be cared for." , "Illness is branched from mental health  and can affect a person’s performance, mental health is the state of your emotional well being." , "Mental health is physical wellbeing whereas mental illnesses affect the brain’s ability to function." , "Although the terms are misunderstood a lot, it is good to understand that mental health doesn’t only refer to disorders, and mental illnesses aren’t only associated with feelings." , 3],
 
-  3: ["What type of people are affected by mental health issues?" , "Usually teenagers." , "People who get bullied at school." , "Depressed kids." , "(Everyone endures life challenges and therefore anybody can be affected by issues of mental health for different problems)." , 4],
+  3: ["What type of people are affected by mental health issues?" , "Usually teenagers." , "People who get bullied at school." , "Depressed kids." , "All of the above.", "Everyone endures life challenges and therefore anybody can be affected by issues of mental health for different problems." , 4],
 
   4: ["How should you approach someone that looks upset?" , "Be sincere and ask if there’s anything you can do for them, show your sympathy and let them have space." , "Punch them, pull their hair and push them to the ground saying “Stop being a cry baby!”." , "Insist on helping them with anything you think you can, even if they say no." , "Avoid approaching them, give them their space and let them deal with it on their own.", "(Although we should be kind, we need to respect the boundaries of someone who is feeling unwell)." , 1],
 
-  5: ["How many people have been affected by mental health in New Zealand?" , "10." , "50%" , "1 in 4 people" , "Everyone" , "(Everyone has had a point in time where they felt like they had no energy :(, as well as a time when they had all the energy in the world)." , 4],
+  5: ["How many people have been affected by mental health in New Zealand?" , "10." , "50%" , "1 in 4 people" , "Everyone" , "(Everyone has had a point in time where they felt like they had no energy :, as well as a time when they had all the energy in the world." , 4],
 
-  6: ["What is a good way to cope with poor mental health?" , "Eat, eat, eat and eat the feelings away." , "Take time to enjoy things such as hobbies, things you are good at and talk to someone if you feel it would help release the stress." , "Try to stay occupied by school work and join lots of social clubs." , "Involve yourself more in class or sports and push yourself to the limits to distract you from the problem." , "(Distracting yourself by over involving in activities is more stressful to handle than the problem itself. Taking a break from everything and having someone by your side will surely calm the tension of the problem)." , 2],
+  6: ["What is a good way to cope with poor mental health?" , "Eat, eat, eat and eat the feelings away." , "Take time to enjoy things such as hobbies, things you are good at and talk to someone if you feel it would help release the stress." , "Try to stay occupied by school work and join lots of social clubs." , "Involve yourself more in class or sports and push yourself to the limits to distract you from the problem." , "Distracting yourself by over involving in activities is more stressful to handle than the problem itself. Taking a break from everything and having someone by your side will surely calm the tension of the problem." , 2],
 
-  7: ["Which Mental health issue affects people the most?" , "Paranoia (distrust of others or feeling like someone is after you)." , "Depression (persistent upset emotions or lack of interest in things, significantly affecting life activities)." , "Eating disorder (abnormal/unusual and unhealthy eating habits)." , "OCD (Obsessive compulsive disorder, repeating behavioural habits due to immoderate thoughts)." , "(These mental issues may be familiar to you and depression is probably the most common issue which is most commonly suffered by people)." , 2],
+  7: ["Which Mental health issue affects people the most?" , "Paranoia (distrust of others or feeling like someone is after you)." , "Depression (persistent upset emotions or lack of interest in things, significantly affecting life activities)." , "Eating disorder (abnormal/unusual and unhealthy eating habits)." , "OCD (Obsessive compulsive disorder, repeating behavioural habits due to immoderate thoughts)." , "These mental issues may be familiar to you and depression is probably the most common issue which is most commonly suffered by people." , 2],
 
-  8: ["What is the best thing to do when you see someone enjoying their day?" , "Nothing, or vibe with them." , "Ruin their day." , "Punch them." , "Make jokes and laugh at them with friends.", "(You don't necessarily have to do anything, just let them be happy or join in!)." , 1],
+  8: ["What is the best thing to do when you see someone enjoying their day?" , "Nothing, or vibe with them." , "Ruin their day." , "Punch them." , "Make jokes and laugh at them with friends.", "You don't necessarily have to do anything, just let them be happy or join in!." , 1],
 
-  9: ["Do people who suffer from serious mental issues deserve special treatment?" , "No, I think we should punch them.", "Yes, it’s nearly impossible to live through life with such difficult problems." , "Acknowledge that they have struggles and don’t persist in bringing them up. Sometimes it’s best to treat them like you should treat anyone, with respect and not like a child.", "Treat them with anything you can such as helping them grab their food at lunch or helping out with school work. Never let them be on their own to do things because they need help." , "(It’s good to be nice, but not controlling over peoples’ lives)." , 3],
+  9: ["Do people who suffer from serious mental issues deserve special treatment?" , "No, I think we should punch them.", "Yes, it’s nearly impossible to live through life with such difficult problems." , "Acknowledge that they have struggles and don’t persist in bringing them up. Sometimes it’s best to treat them like you should treat anyone, with respect and not like a child.", "Treat them with anything you can such as helping them grab their food at lunch or helping out with school work. Never let them be on their own to do things because they need help." , "It’s good to be nice, but not controlling over peoples’ lives." , 3],
 
-  10: ["What shouldn’t you do to someone who is having a rough time with their mental wellbeing?" , "Give them coffee." , "Suggest different ways of distractions such as  colouring a book." , "Offer them to go out into a better space or even go for a run with them." , "Punch them." , "(Just don’t punch them)." , 4],
+  10: ["What shouldn’t you do to someone who is having a rough time with their mental wellbeing?" , "Give them coffee." , "Suggest different ways of distractions such as  colouring a book." , "Offer them to go out into a better space or even go for a run with them." , "Punch them." , "Just don’t punch them." , 4],
 }
 
 #Functions.
@@ -220,40 +220,57 @@ class QuizPage:
       self.score_label.grid(row=6, column=1)
 
       #Exit to menu button.
-      self.exit_button = Button(self.quiz_frame, text = "EXIT TO MENU", font = ("Helvetica", "14", 'bold'), foreground = 'black', bg= '#F07470', highlightthickness = 2, highlightbackground = 'black',  activebackground = '#DC1C13')
+      self.exit_button = Button(self.quiz_frame, text = "EXIT TO MENU", font = ("Helvetica", "14", 'bold'), foreground = 'black', bg= '#F07470', highlightthickness = 2, highlightbackground = 'black',  activebackground = '#DC1C13', command = self.exit)
       self.exit_button.grid(row = 7, column = 0, padx = 20, pady = 20, ipady = 10, ipadx = 10)
 
 
       #Next button.
-      self.next_button = Button(self.quiz_frame, text = "NEXT", font = ("Helvetica", "14", 'bold'), foreground = 'black', bg= '#D9EAD3', highlightthickness = 2, highlightbackground = 'black',  activebackground = '#649568')
+      self.next_button = Button(self.quiz_frame, text = "NEXT", font = ("Helvetica", "14", 'bold'), foreground = 'black', bg= '#D9EAD3', highlightthickness = 2, highlightbackground = 'black',  activebackground = '#649568', command = self.score_calculations)
       self.next_button.grid(row = 7, column = 2, padx = 20, pady = 20, ipady = 10)
 
-    #Question setup.
+  def exit(self):
+    self.quiz_frame.destroy()
+    MenuPage(base)
+
+  #Question setup.
   def question_change(self):
     shuffle()
     self.value.set(0)
-    self.question_label.config(text=questions_answers[qnum][0])
+    self.question_label.config(text=question_answer[qnum][0])
     self.option1.config(text = question_answer[qnum][1])
     self.option2.config(text = question_answer[qnum][2])
     self.option3.config(text = question_answer[qnum][3])
     self.option4.config(text = question_answer[qnum][4])
 
-    #Score calculations.
+  #Score calculations.
   def score_calculations(self):
     global score
     total_score = self.score_label
     option_choice = self.value.get()
     if len(asked)>9:
-      if choice == question_answer[qnum][6]:
+      if choice == question_answer[qnum][6]: #If last question is right answer.
         score +=1
-        total_score.configure(text=score)
-        self.next_button.config(text="next")
-      else:
+        total_score.configure(text= "Score :" + score)
+        self.next_button.config(text="Next")
+      else: #If last question was wrong answer.
         score +=0
-        option_choice.configure(text=question_answer[qnum][5])
-
-
-
+        option_choice.configure(text= "Incorrect:" + question_answer[qnum][5], wraplength = 300)
+        self.next_button.config(text="Next")
+    else:
+      if option_choice == 0: #Check if user made a choice.
+        self.next_button.config(text="Sorry you didn't select anything, please retry")
+        option_choice=self.value.get()
+      else: #If they made choice that isn't last question.
+        if option_choice == question_answer[qnum][6]: #If user is right.
+          score+=1
+          total_score.configure(text=score)
+          self.next_button.config(text="Next")
+          self.question_change() #Run method for next question to come up.
+        else: #If the user chooses wrong answer.
+          score +=0
+          total_score.configure(text="Incorrect:" + question_answer[qnum][5], wraplength = 300)
+          self.next_button.configure(text="Next")
+          self.question_change()
 
 
 class DarkQuizPage:
@@ -295,17 +312,62 @@ class DarkQuizPage:
 
 
       #Exit to menu button.
-      self.exit_button = Button(self.quiz_frame, text = "EXIT TO MENU", font = ("Helvetica", "14", 'bold'), foreground = 'white', bg= '#F07470', highlightthickness = 2, highlightbackground = 'white',  activebackground = '#DC1C13')
+      self.exit_button = Button(self.quiz_frame, text = "EXIT TO MENU", font = ("Helvetica", "14", 'bold'), foreground = 'white', bg= '#F07470', highlightthickness = 2, highlightbackground = 'white',  activebackground = '#DC1C13', command = self.exit)
       self.exit_button.grid(row = 6, column = 0, padx = 20, pady = 20, ipadx = 20, ipady = 10)
 
-
-      #Score Label.
-
-      ########self.scoretotal_label
+      #Score label.
+      self.score_label=Label(self.quiz_frame, text="TOTAL SCORE", font=("Helvetica", "14", "bold"), bg = background_color2)
+      self.score_label.grid(row=6, column=1)
 
       #Next button.
-      self.next_button = Button(self.quiz_frame, text = "NEXT", font = ("Helvetica", "14", 'bold'), foreground = 'white', bg= '#D9EAD3', highlightthickness = 2, highlightbackground = 'white',  activebackground = '#649568')
+      self.next_button = Button(self.quiz_frame, text = "NEXT", font = ("Helvetica", "14", 'bold'), foreground = 'white', bg= '#D9EAD3', highlightthickness = 2, highlightbackground = 'white',  activebackground = '#649568', command = self.score_calculations)
       self.next_button.grid(row = 6, column = 2, padx = 20, pady = 20, ipadx = 20, ipady = 10)
+    
+    
+  def exit(self):
+    self.quiz_frame.destroy()
+    DarkMenuPage(base)
+
+
+#Question setup.
+  def question_change(self):
+    shuffle()
+    self.value.set(0)
+    self.question_label.config(text=question_answer[qnum][0])
+    self.option1.config(text = question_answer[qnum][1])
+    self.option2.config(text = question_answer[qnum][2])
+    self.option3.config(text = question_answer[qnum][3])
+    self.option4.config(text = question_answer[qnum][4])
+
+  #Score calculations.
+  def score_calculations(self):
+    global score
+    total_score = self.score_label
+    option_choice = self.value.get()
+    if len(asked)>9:
+      if choice == question_answer[qnum][6]: #If last question is right answer.
+        score +=1
+        total_score.configure(text= "Score :" + score)
+        self.next_button.config(text="Next")
+      else: #If last question was wrong answer.
+        score +=0
+        option_choice.configure(text= "Incorrect:" + question_answer[qnum][5])
+        self.next_button.config(text="Next")
+    else:
+      if option_choice == 0: #Check if user made a choice.
+        self.next_button.config(text="Sorry you didn't select anything, please retry")
+        option_choice=self.value.get()
+      else: #If they made choice that isn't last question.
+        if option_choice == question_answer[qnum][6]: #If user is right.
+          score+=1
+          total_score.configure(text=score)
+          self.next_button.config(text="Next")
+          self.question_change() #Run method for next question to come up.
+        else: #If the user chooses wrong answer.
+          score +=0
+          total_score.configure(text="Incorrect:" + question_answer[qnum][5])
+          self.next_button.configure(text="Next")
+          self.question_change()
 
 
 #Run Programe.
@@ -315,4 +377,3 @@ if __name__== "__main__": #If this is the file name then it will be able to run.
   base.title("Mental Health Quiz") #Window Title.
   quiz_instance = MenuPage(base) #Making an instance of the class QuizMenu (instantation).
   base.mainloop() #Shows window until user closes it.
-
