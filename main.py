@@ -107,9 +107,9 @@ class MenuPage:
         username_list.append(name)
         self.quiz_frame.destroy() #destroy the starter
         QuizPage(base)
-      elif str.isalpha(name) == False :
+      elif str.isalpha(name) == False and len(name) >0:
         messagebox.showerror("Name error:", "Please check that you are only using letters and no other characters or numerals.")
-      elif len(name) <0:
+      elif len(name) <1:
         messagebox.showerror("Name error:", "Please check that you have entered a name.")
       elif len(name) >10:
         messagebox.showerror("Name error:", "Please check that you have entered a name up to 10 characters.")
@@ -169,11 +169,11 @@ class DarkMenuPage:
         username_list.append(name)
         self.quiz_frame.destroy() #destroy the starter
         DarkQuizPage(base)
-      elif str.isalpha(name) == False :
+      elif str.isalpha(name) == False and len(name) >0:
         messagebox.showerror("Name error:", "Please check that you are only using letters and no other characters or numerals.")
-      elif len(name) <0:
+      elif len(name) <1:
         messagebox.showerror("Name error:", "Please check that you have entered a name.")
-      elif len(name) >10:
+      elif len(name) >10 and str.isalpha(name) == True:
         messagebox.showerror("Name error:", "Please check that you have entered a name up to 10 characters.")
 
 
@@ -181,8 +181,8 @@ class QuizPage:
   def __init__(self, parent):
       #Setting up the frame.
       self.quiz_frame = Frame(parent, bg = background_color)
-      self.quiz_frame.grid()
       base.geometry("1050x600") #Geometry used to create a fixed window size/window dimensions.
+      self.quiz_frame.pack(fill="both", expand=True)
 
       shuffle()
 
@@ -196,37 +196,40 @@ class QuizPage:
       #self.image_label.grid(column = 0, row = 0)
 
       #question
-      self.question_label = Label(self.quiz_frame, text = question_answer[qnum][0], font =("Helvitica","16", "bold"), foreground = 'black', bg = '#d8e9da', highlightbackground = 'black', highlightthickness = 2, wraplength = 600)
-      self.question_label.grid(column = 1, row = 0, pady=10, padx=10)
+      self.question_label = Label(self.quiz_frame, text = question_answer[qnum][0], font =("Helvitica","16", "bold"), foreground = 'black', bg = '#d8e9da', highlightbackground = 'black', width = 52, highlightthickness = 2, wraplength = 700)
+      self.question_label.place(x = 200, y = 10)
 
       #radio button 1.
-      self.option1= Radiobutton(self.quiz_frame, text=question_answer[qnum][1], font=("Helvetica","12"), foreground = 'black', bg=background_color, value=1, variable = self.value, background = "white", activebackground='mint cream',  indicatoron = 0, highlightbackground = 'black', highlightthickness = 2, relief = RAISED, justify="left", width = 35, wraplength = 300)
-      self.option1.grid(row = 2, column = 1, sticky = W, padx=10, pady = 10, ipady = 10)
+      self.option1= Radiobutton(self.quiz_frame, text=question_answer[qnum][1], font=("Helvetica","12"), foreground = 'black', bg=background_color, value=1, padx=10, variable = self.value, background = "white", activebackground='light gray',  indicatoron = 0, selectcolor = 'light gray', highlightbackground = 'black', highlightthickness = 2, relief = RAISED, justify="left", width = 35, height = 6, wraplength = 300)
+      self.option1.place(x = 200, y = 100)
 
       #radio button 2
-      self.option2 = Radiobutton(self.quiz_frame, text=question_answer[qnum][2], font=("Helvetica","12"), foreground = 'black', bg=background_color, value=2, padx=10, pady=10, variable=self.value, background = "white", activebackground='mint cream',  indicatoron = 0, highlightbackground = 'black', highlightthickness = 2, relief = RAISED, justify="left", width = 35, wraplength = 300)
-      self.option2.grid(row=3, column = 1, sticky=W, padx=10, pady = 10, ipady = 10, ipadx = 10)
+      self.option2 = Radiobutton(self.quiz_frame, text=question_answer[qnum][2], font=("Helvetica","12"), foreground = 'black', bg=background_color, value=2, padx=10, variable=self.value, background = "white", activebackground='light gray',  indicatoron = 0, selectcolor = 'light gray', highlightbackground = 'black',  highlightthickness = 2, relief = RAISED, justify="left", width = 35, height = 6, wraplength = 300)
+      self.option2.place(x = 600, y = 100)
 
       #radio button 3
-      self.option3=Radiobutton(self.quiz_frame, text=question_answer[qnum][3], font=("Helvetica","12"), foreground = 'black', bg=background_color, value=3, padx=10, pady=10, variable=self.value, background = "white", activebackground='mint cream',  indicatoron = 0, highlightbackground = 'black', highlightthickness = 2, relief = RAISED, justify="left", width = 35, wraplength = 300)
-      self.option3.grid(row=4, column = 1, sticky=W, padx=10, pady = 10, ipady = 10)
+      self.option3=Radiobutton(self.quiz_frame, text=question_answer[qnum][3], font=("Helvetica","12"), foreground = 'black', bg=background_color, value=3, padx=10, variable=self.value, background = "white", activebackground='light gray',  indicatoron = 0, selectcolor = 'light gray', highlightbackground = 'black', highlightthickness = 2, relief = RAISED, justify="left", width = 35, height = 6, wraplength = 300)
+      self.option3.place(x = 200, y = 300)
 
       #radio button 4
-      self.option4=Radiobutton(self.quiz_frame, text=question_answer[qnum][4], font=("Helvetica","12"), foreground = 'black', bg=background_color, value=4, padx=10, pady=10, variable=self.value, background = "white", activebackground='mint cream',  indicatoron = 0, highlightbackground = 'black', highlightthickness = 2, relief = RAISED, justify="left", width = 35, wraplength = 300)
-      self.option4.grid(row=5, column = 1, sticky=W, padx=10, pady = 10, ipady = 10)
+      self.option4=Radiobutton(self.quiz_frame, text=question_answer[qnum][4], font=("Helvetica","12"), foreground = 'black', bg=background_color, value=4, padx=10, variable=self.value, background = "white", activebackground='light gray',  indicatoron = 0, selectcolor = 'light gray', highlightbackground = 'black', highlightthickness = 2, relief = RAISED, justify="left", width = 35, height = 6, wraplength = 300)
+      self.option4.place(x = 600, y = 300)
 
       #Score label.
-      self.score_label=Label(self.quiz_frame, text="TOTAL SCORE", font=("Helvetica", "14", "bold"), bg = background_color)
-      self.score_label.grid(row=6, column=1)
+      self.score_label=Label(self.quiz_frame, text="TOTAL SCORE", font=("Helvetica", "14", "bold"), bg = background_color, pady = 5)
+      self.score_label.place(x = 450, y = 500)
 
       #Exit to menu button.
-      self.exit_button = Button(self.quiz_frame, text = "EXIT TO MENU", font = ("Helvetica", "14", 'bold'), foreground = 'black', bg= '#F07470', highlightthickness = 2, highlightbackground = 'black',  activebackground = '#DC1C13', command = self.exit)
-      self.exit_button.grid(row = 7, column = 0, padx = 20, pady = 20, ipady = 10, ipadx = 10)
+      self.exit_button = Button(self.quiz_frame, text = "EXIT TO MENU", font = ("Helvetica", "14", 'bold'), foreground = 'black', bg= '#F07470', pady=10, width = 10, highlightthickness = 2, highlightbackground = 'black',  activebackground = '#DC1C13', command = self.exit)
+      self.exit_button.place(x = 80, y = 500)
 
 
       #Next button.
-      self.next_button = Button(self.quiz_frame, text = "NEXT", font = ("Helvetica", "14", 'bold'), foreground = 'black', bg= '#D9EAD3', highlightthickness = 2, highlightbackground = 'black',  activebackground = '#649568', command = self.score_calculations)
-      self.next_button.grid(row = 7, column = 2, padx = 20, pady = 20, ipady = 10)
+      self.next_button = Button(self.quiz_frame, text = "NEXT", font = ("Helvetica", "14", 'bold'), foreground = 'black', bg= '#D9EAD3', pady= 10, width = 10, highlightthickness = 2, highlightbackground = 'black',  activebackground = '#649568', command = self.score_calculations)
+      self.next_button.place(x = 800, y = 500)
+
+
+      #Answertext label
 
   def exit(self):
     self.quiz_frame.destroy()
@@ -253,7 +256,7 @@ class QuizPage:
         total_score.configure(text= "Score :" + score)
       else: #If last question was wrong answer.
         score +=0
-        option_choice.configure(text= "Incorrect:" + question_answer[qnum][5], wraplength = 300)
+        option_choice.configure(text= "Incorrect: \n" + question_answer[qnum][5], wraplength = 600)
     else:
       if option_choice == 0: #Check if user made a choice.
         self.score_label.config(text="Sorry you didn't select anything, please retry")
@@ -265,7 +268,7 @@ class QuizPage:
           self.question_change() #Run method for next question to come up.
         else: #If the user chooses wrong answer.
           score +=0
-          total_score.configure(text="Incorrect:" + question_answer[qnum][5], wraplength = 300)
+          total_score.configure(text="Incorrect: \n" + question_answer[qnum][5], wraplength = 600)
           self.question_change()
 
 
@@ -346,7 +349,7 @@ class DarkQuizPage:
         total_score.configure(text= "Score :" + score)
       else: #If last question was wrong answer.
         score +=0
-        option_choice.configure(text= "Incorrect:" + question_answer[qnum][5])
+        option_choice.configure(text= "Incorrect: \n" + question_answer[qnum][5], foreground = 'white', wraplength = 600)
     else:
       if option_choice == 0: #Check if user made a choice.
         self.score_label.config(text="Sorry you didn't select anything, please retry")
@@ -358,7 +361,7 @@ class DarkQuizPage:
           self.question_change() #Run method for next question to come up.
         else: #If the user chooses wrong answer.
           score +=0
-          total_score.configure(text="Incorrect:" + question_answer[qnum][5], foreground = 'white')
+          total_score.configure(text="Incorrect: \n" + question_answer[qnum][5], foreground = 'white', wraplength = 600)
           self.question_change()
 
 
