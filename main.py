@@ -223,12 +223,16 @@ class QuizPage:
       self.option4.place(x = 600, y = 300)
 
       #Score label.
-      #self.score_label=Label(self.quiz_frame, text="TOTAL SCORE: ", font=("Helvetica", "14", "bold"), bg = background_color, pady = 5)
-      #self.score_label.place(x = 10, y = 100)
+      self.score_label=Label(self.quiz_frame, text="TOTAL SCORE:", font=("Helvetica", "14", "bold"), bg = background_color, pady = 5)
+      self.score_label.place(x = 10, y = 200)
+
+      #Calculated Score label.
+      self.numberscore_label=Label(self.quiz_frame, text="....", font=("Helvetica", "16", "bold"), bg = background_color, pady = 5)
+      self.numberscore_label.place(x = 60, y = 260)
 
       #Answertext label
-      #self.answertext_label=Label(self.quiz_frame, text="Think Carefully", font=("Helvetica", "14", "bold"), bg = background_color, pady = 5)
-      #self.answertext_label.place(x = 450, y = 500)
+      self.answertext_label=Label(self.quiz_frame, text="....", font=("Helvetica", "14", "bold"), bg = background_color, foreground = background_color, pady = 5, wraplength = 500)
+      self.answertext_label.place(x = 200, y = 450)
 
 
       #Exit to menu button.
@@ -259,27 +263,29 @@ class QuizPage:
   #Score calculations.
   def score_calculations(self):
     global score
-    total_score = self.score_label
+    total_score = self.numberscore_label
     option_choice = self.value.get()
+    answer_text = self.answertext_label
     if len(asked)>9:
       if choice == question_answer[qnum][6]: #If last question is right answer.
         score +=1
-        total_score.configure(text= "Score :" + score)
+        total_score.configure(text= score)
+        answer_text.configure(text="Correct!", foreground = 'green')
       else: #If last question was wrong answer.
         score +=0
-        option_choice.configure(text= "Incorrect: \n" + question_answer[qnum][5], wraplength = 600)
+        answer_text.configure(text= "Incorrect: \n" + question_answer[qnum][5], foreground = 'red')
     else:
       if option_choice == 0: #Check if user made a choice.
-        self.score_label.config(text="Sorry you didn't select anything, please retry")
-        option_choice=self.value.get()
+        answer_text.config(text="Sorry you didn't select anything, please retry")
       else: #If they made choice that isn't last question.
         if option_choice == question_answer[qnum][6]: #If user is right.
           score+=1
-          total_score.configure(text=score)
+          total_score.configure(text = score)
+          answer_text.configure(text="Correct!", foreground = 'green')
           self.question_change() #Run method for next question to come up.
         else: #If the user chooses wrong answer.
           score +=0
-          total_score.configure(text="Incorrect: \n" + question_answer[qnum][5], wraplength = 600)
+          answer_text.configure(text="Incorrect: \n" + question_answer[qnum][5], foreground = 'red')
           self.question_change()
 
 
