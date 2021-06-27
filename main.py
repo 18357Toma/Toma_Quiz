@@ -223,8 +223,13 @@ class QuizPage:
       self.option4.place(x = 600, y = 300)
 
       #Score label.
-      self.score_label=Label(self.quiz_frame, text="TOTAL SCORE", font=("Helvetica", "14", "bold"), bg = background_color, pady = 5)
-      self.score_label.place(x = 450, y = 500)
+      #self.score_label=Label(self.quiz_frame, text="TOTAL SCORE: ", font=("Helvetica", "14", "bold"), bg = background_color, pady = 5)
+      #self.score_label.place(x = 10, y = 100)
+
+      #Answertext label
+      #self.answertext_label=Label(self.quiz_frame, text="Think Carefully", font=("Helvetica", "14", "bold"), bg = background_color, pady = 5)
+      #self.answertext_label.place(x = 450, y = 500)
+
 
       #Exit to menu button.
       self.exit_button = Button(self.quiz_frame, text = "EXIT TO MENU", font = ("Helvetica", "14", 'bold'), foreground = 'black', bg= '#F07470', pady=10, width = 15, highlightthickness = 2, highlightbackground = 'black',  activebackground = '#DC1C13', command = self.exit)
@@ -236,7 +241,6 @@ class QuizPage:
       self.next_button.place(x = 800, y = 500)
 
 
-      #Answertext label
 
   def exit(self):
     self.quiz_frame.destroy()
@@ -322,8 +326,10 @@ class DarkQuizPage:
       self.option4.place(x = 600, y = 300)
 
       #Score label.
-      self.score_label=Label(self.quiz_frame, text="TOTAL SCORE", font=("Helvetica", "14", "bold"), bg = background_color, pady = 5)
-      self.score_label.place(x = 450, y = 500)
+      #self.score_label=Label(self.quiz_frame, text="TOTAL SCORE: ", font=("Helvetica", "14", "bold"), bg = background_color, pady = 5)
+      #self.score_label.place(x = 450, y = 500)
+
+      #Answertext label.
 
       #Exit to menu button.
       self.exit_button = Button(self.quiz_frame, text = "EXIT TO MENU", font = ("Helvetica", "14", 'bold'), foreground = 'black', bg= '#F07470', pady=10, width = 15, highlightthickness = 2, highlightbackground = 'black',  activebackground = '#DC1C13', command = self.exit)
