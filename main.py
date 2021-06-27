@@ -53,51 +53,50 @@ def shuffle():
 
 class MenuPage:
   def __init__(self, parent):
-    self.quiz_frame = Frame(parent)
-    self.quiz_frame.grid() #Grid/table structure window.
+    #Set up frame for window.
+    self.menu_frame = Frame(parent)
+    self.menu_frame.grid() #Grid/table structure window.
     base.geometry("980x600")
 
-    self.bg_image1 = Image.open("lightbackground.png") 
-    self.bg_image1 = ImageTk.PhotoImage(self.bg_image1)
+    self.bg_image = Image.open("lightbackground.png") 
+    self.bg_image = ImageTk.PhotoImage(self.bg_image)
     base.configure(bg = background_color) 
-    #Setting up the frame.
-
-    self.image_label= Label(self.quiz_frame, image=self.bg_image1)
+    self.image_label= Label(self.menu_frame, image=self.bg_image)
     self.image_label.place(x=0, y=0) # make label fit the parent window always
 
 
-    self.bg_image = Image.open("quiztitle.png")
+    self.title_image = Image.open("quiztitle.png")
     #need to use Image if need to resize
-    self.bg_image = self.bg_image.resize((500, 100), Image.ANTIALIAS)
-    self.bg_image = ImageTk.PhotoImage(self.bg_image)
+    self.title_image = self.title_image.resize((500, 100), Image.ANTIALIAS)
+    self.title_image = ImageTk.PhotoImage(self.title_image)
     #Label widget for heading.
-    self.heading_label = Label(self.quiz_frame, image=self.bg_image, borderwidth = 0) #The label is text.
+    self.heading_label = Label(self.menu_frame, image=self.title_image, borderwidth = 0) #The label is text.
     self.heading_label.grid(row = 1, column = 1, padx = 10)
 
     #Subtitle text.
-    self.user_label = Label(self.quiz_frame, text="Hi there! \n \n Enter your name below and press start to begin:", font = ("Helvetica","16"), bg = background_color)
+    self.user_label = Label(self.menu_frame, text="Hi there! \n \n Enter your name below and press start to begin:", font = ("Helvetica","16"), bg = background_color)
     self.user_label.grid(row = 2, column = 1, padx = 20, pady = 20)
 
     #Enter name box.
-    self.entry_box = Entry(self.quiz_frame)
+    self.entry_box = Entry(self.menu_frame)
     self.entry_box.grid(row = 3, column = 1, padx = 20, pady = 20, ipadx = 80, ipady = 10)
 
 
     #Dark theme button.
-    self.theme1_button = Button(self.quiz_frame, text = "Dark theme", font = ("Helvetica","14", 'bold'), foreground = 'black', bg = background_color, background = "dark gray", highlightthickness = 2, highlightbackground = 'black', activebackground = 'light gray', padx=10, pady=10, relief = RAISED, command = self.dark_theme)
+    self.theme1_button = Button(self.menu_frame, text = "Dark theme", font = ("Helvetica","14", 'bold'), foreground = 'black', bg = background_color, background = "dark gray", highlightthickness = 2, highlightbackground = 'black', activebackground = 'light gray', padx=10, pady=10, relief = RAISED, command = self.dark_theme)
     self.theme1_button.grid(row = 0, column = 0, pady = 20, padx = 20)
 
     #Light theme button.
-    self.theme2_button = Button(self.quiz_frame, text = "Light theme", font = ("Helvetica","14", 'bold'), foreground = 'black', bg = background_color, background = "white", highlightthickness = 2, highlightbackground = 'black',  activebackground = 'light gray', padx=10, pady=10, relief = RAISED)
+    self.theme2_button = Button(self.menu_frame, text = "Light theme", font = ("Helvetica","14", 'bold'), foreground = 'black', bg = background_color, background = "white", highlightthickness = 2, highlightbackground = 'black',  activebackground = 'light gray', padx=10, pady=10, relief = RAISED)
     self.theme2_button.grid(row = 0, column = 2, pady = 20, padx = 20)
 
     #Start button.
-    self.start_button = Button(self.quiz_frame, text = "START", font = ("Helvetica", "18", 'bold'), foreground = 'black', bg= '#D9EAD3', highlightthickness = 2, highlightbackground = 'black',  activebackground = '#649568', command = self.name_collection)
+    self.start_button = Button(self.menu_frame, text = "START", font = ("Helvetica", "18", 'bold'), foreground = 'black', bg= '#D9EAD3', highlightthickness = 2, highlightbackground = 'black',  activebackground = '#649568', command = self.name_collection)
     self.start_button.grid(row = 4, column = 1, padx = 20, pady = 40, ipadx = 30, ipady = 10)
   
 
   def dark_theme(self):
-      self.quiz_frame.destroy()
+      self.menu_frame.destroy()
       DarkMenuPage(base)
 
   #Name Colection.
@@ -105,7 +104,7 @@ class MenuPage:
       name=self.entry_box.get()
       if str.isalpha(name) == True and len(name) >0 and len(name) <=10:
         username_list.append(name)
-        self.quiz_frame.destroy() #destroy the starter
+        self.menu_frame.destroy() #destroy the starter
         QuizPage(base)
       elif str.isalpha(name) == False and len(name) >0:
         messagebox.showerror("Name error:", "Please check that you are only using letters and no other characters or numerals.")
@@ -118,48 +117,48 @@ class MenuPage:
 class DarkMenuPage:
   def __init__(self, parent):
       #Setting up the frame.
-      self.quiz_frame = Frame(parent)
-      self.quiz_frame.grid() #Grid/table structure window.
+      self.menu_frame = Frame(parent)
+      self.menu_frame.grid() #Grid/table structure window.
       base.geometry("980x600") #Geometry used to create a fixed window size/window dimensions.
 
-      self.bg_image1 = Image.open("darkbackground.png")
-      self.bg_image1 = ImageTk.PhotoImage(self.bg_image1)
+      self.bg_image = Image.open("darkbackground.png")
+      self.bg_image = ImageTk.PhotoImage(self.bg_image)
       base.configure(bg = background_color2)
-      self.image_label= Label(self.quiz_frame, image = self.bg_image1)
+      self.image_label= Label(self.menu_frame, image = self.bg_image)
       self.image_label.place(x=0, y=0) # make label l to fit the parent window always
 
       #Label widget for heading.
-      self.bg_image = Image.open("darkquiztitle.png") #need to use Image if need to resize
-      self.bg_image = self.bg_image.resize((500, 100), Image.ANTIALIAS)
-      self.bg_image = ImageTk.PhotoImage(self.bg_image)
+      self.title_image = Image.open("darkquiztitle.png") #need to use Image if need to resize
+      self.title_image = self.title_image.resize((500, 100), Image.ANTIALIAS)
+      self.title_image = ImageTk.PhotoImage(self.title_image)
       #Label widget for heading.
-      self.heading_label = Label(self.quiz_frame, image=self.bg_image, borderwidth = 0) #The label is text.
+      self.heading_label = Label(self.menu_frame, image=self.title_image, borderwidth = 0) #The label is text.
       self.heading_label.grid(row = 1, column = 1, padx = 10)
 
       #Subtitle text.
-      self.user_label = Label(self.quiz_frame, text = "Hi there! \n \n Enter your name below and press start to begin:", font = ("Helvetica","16"), foreground = 'white', bg = background_color2)
+      self.user_label = Label(self.menu_frame, text = "Hi there! \n \n Enter your name below and press start to begin:", font = ("Helvetica","16"), foreground = 'white', bg = background_color2)
       self.user_label.grid(row = 2, column = 1, padx = 20, pady = 20)
 
       #Enter name box.
-      self.entry_box = Entry(self.quiz_frame)
+      self.entry_box = Entry(self.menu_frame)
       self.entry_box.grid(row = 3, column = 1, padx = 20, pady = 20, ipadx = 80, ipady = 10)
       self.value = IntVar() #Holds the value of radio buttons.
 
       #Dark theme button.
-      self.theme1_button = Button(self.quiz_frame, text = "Dark theme", font = ("Helvetica","14", 'bold'), foreground = 'white', bg = background_color, background = "dark gray", highlightthickness = 2, highlightbackground = 'white', activebackground = 'light gray',  padx=10, pady=10, relief = RAISED)
+      self.theme1_button = Button(self.menu_frame, text = "Dark theme", font = ("Helvetica","14", 'bold'), foreground = 'white', bg = background_color, background = "dark gray", highlightthickness = 2, highlightbackground = 'white', activebackground = 'light gray',  padx=10, pady=10, relief = RAISED)
       self.theme1_button.grid(row = 0, column = 0, pady = 20, padx = 20)
 
       #Light theme button.
-      self.theme2_button = Button(self.quiz_frame, text = "Light theme", font = ("Helvetica","14", 'bold'), foreground = 'black', bg = background_color, background = "white", highlightthickness = 2, highlightbackground = 'white',  activebackground = 'light gray',  padx=10, pady=10, relief = RAISED, command = self.light_theme)
+      self.theme2_button = Button(self.menu_frame, text = "Light theme", font = ("Helvetica","14", 'bold'), foreground = 'black', bg = background_color, background = "white", highlightthickness = 2, highlightbackground = 'white',  activebackground = 'light gray',  padx=10, pady=10, relief = RAISED, command = self.light_theme)
       self.theme2_button.grid(row = 0, column = 2, pady = 20, padx = 20)
     
       #Start button.
-      self.start_button = Button(self.quiz_frame, text = "START", font = ("Helvetica", "16", 'bold'), foreground = 'white', bg = '#775144', highlightthickness = 2, highlightbackground = 'white',  activebackground = '#60100B', activeforeground = 'white', relief = RAISED, command = self.name_collection)
+      self.start_button = Button(self.menu_frame, text = "START", font = ("Helvetica", "16", 'bold'), foreground = 'white', bg = '#775144', highlightthickness = 2, highlightbackground = 'white',  activebackground = '#60100B', activeforeground = 'white', relief = RAISED, command = self.name_collection)
       self.start_button.grid(row = 4, column = 1, padx = 20, pady = 40, ipadx = 30, ipady = 10)
 
 
   def light_theme(self):
-      self.quiz_frame.destroy()
+      self.menu_frame.destroy()
       MenuPage(base)
 
   #Name Colection.
@@ -167,7 +166,7 @@ class DarkMenuPage:
       name = self.entry_box.get()
       if str.isalpha(name) == True and len(name) >0 and len(name) <=10:
         username_list.append(name)
-        self.quiz_frame.destroy() #destroy the starter
+        self.menu_frame.destroy() #destroy the starter
         DarkQuizPage(base)
       elif str.isalpha(name) == False and len(name) >0:
         messagebox.showerror("Name error:", "Please check that you are only using letters and no other characters or numerals.")
@@ -180,7 +179,7 @@ class DarkMenuPage:
 class QuizPage:
   def __init__(self, parent):
       #Setting up the frame.
-      self.quiz_frame = Frame(parent, bg = background_color)
+      self.quiz_frame = Frame(parent)
       base.geometry("1050x600") #Geometry used to create a fixed window size/window dimensions.
       self.quiz_frame.pack(fill="both", expand=True)
 
@@ -188,31 +187,39 @@ class QuizPage:
 
       self.value=IntVar() #Holds the value of radio buttons.
 
+
+      self.bg_image = Image.open("lightbackground.png") 
+      self.bg_image = ImageTk.PhotoImage(self.bg_image)
+      base.configure(bg = background_color) 
+      self.image_label= Label(self.quiz_frame, image=self.bg_image)
+      self.image_label.place(x=0, y=0) # make label fit the parent window always
+
+
       #Label widget for title logo.
-      #self.logo_image = Image.open("titlelogo.png") #need to use Image if need to resize
-      #self.logo_image = self.logo_image.resize((140, 120), Image.ANTIALIAS)
-      #self.logo_image = ImageTk.PhotoImage(self.logo_image)
-      #self.image_label= Label(self.quiz_frame, image=self.logo_image, borderwidth = 0)
-      #self.image_label.grid(column = 0, row = 0)
+      self.logo_image = Image.open("titlelogo.png") #need to use Image if need to resize
+      self.logo_image = self.logo_image.resize((140, 120), Image.ANTIALIAS)
+      self.logo_image = ImageTk.PhotoImage(self.logo_image)
+      self.image_label= Label(self.quiz_frame, image=self.logo_image, borderwidth = 0)
+      self.image_label.place(x = 20, y = 10)
 
       #question
       self.question_label = Label(self.quiz_frame, text = question_answer[qnum][0], font =("Helvitica","16", "bold"), foreground = 'black', bg = '#d8e9da', highlightbackground = 'black', width = 52, highlightthickness = 2, wraplength = 700)
       self.question_label.place(x = 200, y = 10)
 
       #radio button 1.
-      self.option1= Radiobutton(self.quiz_frame, text=question_answer[qnum][1], font=("Helvetica","12"), foreground = 'black', bg=background_color, value=1, padx=10, variable = self.value, background = "white", activebackground='light gray',  indicatoron = 0, selectcolor = 'light gray', highlightbackground = 'black', highlightthickness = 2, relief = RAISED, justify="left", width = 35, height = 6, wraplength = 300)
+      self.option1= Radiobutton(self.quiz_frame, text=question_answer[qnum][1], font=("Helvetica","12"), foreground = 'black', value=1, padx=5, pady=5, variable = self.value, background = "white", activebackground='light gray',  indicatoron = 0, selectcolor = 'light gray', highlightbackground = '#d8e9da', highlightthickness = 2, relief = RAISED, justify="left", width = 35, height = 6, wraplength = 300)
       self.option1.place(x = 200, y = 100)
 
       #radio button 2
-      self.option2 = Radiobutton(self.quiz_frame, text=question_answer[qnum][2], font=("Helvetica","12"), foreground = 'black', bg=background_color, value=2, padx=10, variable=self.value, background = "white", activebackground='light gray',  indicatoron = 0, selectcolor = 'light gray', highlightbackground = 'black',  highlightthickness = 2, relief = RAISED, justify="left", width = 35, height = 6, wraplength = 300)
+      self.option2 = Radiobutton(self.quiz_frame, text=question_answer[qnum][2], font=("Helvetica","12"), foreground = 'black', value=2, padx=5, pady=5, variable=self.value, background = "white", activebackground='light gray',  indicatoron = 0, selectcolor = 'light gray', highlightbackground = '#d8e9da',  highlightthickness = 2, relief = RAISED, justify="left", width = 35, height = 6, wraplength = 300)
       self.option2.place(x = 600, y = 100)
 
       #radio button 3
-      self.option3=Radiobutton(self.quiz_frame, text=question_answer[qnum][3], font=("Helvetica","12"), foreground = 'black', bg=background_color, value=3, padx=10, variable=self.value, background = "white", activebackground='light gray',  indicatoron = 0, selectcolor = 'light gray', highlightbackground = 'black', highlightthickness = 2, relief = RAISED, justify="left", width = 35, height = 6, wraplength = 300)
+      self.option3=Radiobutton(self.quiz_frame, text=question_answer[qnum][3], font=("Helvetica","12"), foreground = 'black', value=3, padx=5, pady=5, variable=self.value, background = "white", activebackground='light gray',  indicatoron = 0, selectcolor = 'light gray', highlightbackground = '#d8e9da', highlightthickness = 2, relief = RAISED, justify="left", width = 35, height = 6, wraplength = 300)
       self.option3.place(x = 200, y = 300)
 
       #radio button 4
-      self.option4=Radiobutton(self.quiz_frame, text=question_answer[qnum][4], font=("Helvetica","12"), foreground = 'black', bg=background_color, value=4, padx=10, variable=self.value, background = "white", activebackground='light gray',  indicatoron = 0, selectcolor = 'light gray', highlightbackground = 'black', highlightthickness = 2, relief = RAISED, justify="left", width = 35, height = 6, wraplength = 300)
+      self.option4=Radiobutton(self.quiz_frame, text=question_answer[qnum][4], font=("Helvetica","12"), foreground = 'black', value=4, padx=5, pady=5, variable=self.value, background = "white", activebackground='light gray',  indicatoron = 0, selectcolor = 'light gray', highlightbackground = '#d8e9da', highlightthickness = 2, relief = RAISED, justify="left", width = 35, height = 6, wraplength = 300)
       self.option4.place(x = 600, y = 300)
 
       #Score label.
@@ -220,7 +227,7 @@ class QuizPage:
       self.score_label.place(x = 450, y = 500)
 
       #Exit to menu button.
-      self.exit_button = Button(self.quiz_frame, text = "EXIT TO MENU", font = ("Helvetica", "14", 'bold'), foreground = 'black', bg= '#F07470', pady=10, width = 10, highlightthickness = 2, highlightbackground = 'black',  activebackground = '#DC1C13', command = self.exit)
+      self.exit_button = Button(self.quiz_frame, text = "EXIT TO MENU", font = ("Helvetica", "14", 'bold'), foreground = 'black', bg= '#F07470', pady=10, width = 15, highlightthickness = 2, highlightbackground = 'black',  activebackground = '#DC1C13', command = self.exit)
       self.exit_button.place(x = 80, y = 500)
 
 
@@ -275,52 +282,57 @@ class QuizPage:
 class DarkQuizPage:
   def __init__(self, parent):
       #Setting up the frame.
-      self.quiz_frame = Frame(parent, bg = background_color2)
-      self.quiz_frame.grid()
+      self.quiz_frame = Frame(parent)
+      self.quiz_frame.pack(fill="both", expand=True)
       base.geometry("1050x600") #Geometry used to create a fixed window size/window dimensions.
 
       shuffle()
 
       self.value=IntVar() #Holds the value of radio buttons.
 
-      #Label widget for title logo.
-      #self.logo_image = Image.open("titlelogo.png")
-      #self.logo_image = ImageTk.PhotoImage(self.logo_image)
-      #self.image_label= Label(self.quiz_frame, image=self.logo_image, borderwidth = 0)
-      #self.image_label.grid(column = 0, row = 0)
+      self.bg_image = Image.open("darkbackground.png") 
+      self.bg_image = ImageTk.PhotoImage(self.bg_image)
+      base.configure(bg = background_color2) 
+      self.image_label= Label(self.quiz_frame, image=self.bg_image)
+      self.image_label.place(x=0, y=0) # make label fit the parent window always
 
-      #question
-      self.question_label = Label(self.quiz_frame, text = question_answer[qnum][0], font =("Helvitica","16", "bold"), foreground = 'white', bg = '#c09891', highlightbackground = 'white', highlightthickness = 2, wraplength = 600)
-      self.question_label.grid(column = 1, row = 0, pady=10, padx=10)
+      #Label widget for title logo.
+      self.logo_image = Image.open("darktitlelogo.png")
+      self.logo_image = ImageTk.PhotoImage(self.logo_image)
+      self.image_label= Label(self.quiz_frame, image=self.logo_image, borderwidth = 0)
+      self.image_label.place(x = 20, y = 10)
+
+      self.question_label = Label(self.quiz_frame, text = question_answer[qnum][0], font =("Helvitica","16", "bold"), foreground = 'white', bg = '#c09891', highlightbackground = 'white', width = 52, highlightthickness = 2, wraplength = 700)
+      self.question_label.place(x = 200, y = 10)
 
       #radio button 1.
-      self.option1= Radiobutton(self.quiz_frame, text=question_answer[qnum][1], font=("Helvetica","12"), foreground = 'black', bg=background_color, value=1, variable = self.value, background = "white", activebackground='mint cream',  indicatoron = 0, highlightbackground = 'black', highlightthickness = 2, relief = RAISED, justify="left", width = 35, wraplength = 300)
-      self.option1.grid(row = 2, column = 1, sticky = W, padx=10, pady = 10, ipady = 10)
+      self.option1= Radiobutton(self.quiz_frame, text=question_answer[qnum][1], font=("Helvetica","12"), foreground = 'black', value=1, padx=5, pady=5, variable = self.value, background = "white", activebackground='light gray',  indicatoron = 0, selectcolor = 'light gray', highlightbackground = '#c09891', highlightthickness = 2, relief = RAISED, justify="left", width = 35, height = 6, wraplength = 300)
+      self.option1.place(x = 200, y = 100)
 
       #radio button 2
-      self.option2 = Radiobutton(self.quiz_frame, text=question_answer[qnum][2], font=("Helvetica","12"), foreground = 'black', bg=background_color, value=2, padx=10, pady=10, variable=self.value, background = "white", activebackground='mint cream',  indicatoron = 0, highlightbackground = 'black', highlightthickness = 2, relief = RAISED, justify="left", width = 35, wraplength = 300)
-      self.option2.grid(row=3, column = 1, sticky=W, padx=10, pady = 10, ipady = 10)
+      self.option2 = Radiobutton(self.quiz_frame, text=question_answer[qnum][2], font=("Helvetica","12"), foreground = 'black', value=2, padx=5, pady=5, variable=self.value, background = "white", activebackground='light gray',  indicatoron = 0, selectcolor = 'light gray', highlightbackground = '#c09891',  highlightthickness = 2, relief = RAISED, justify="left", width = 35, height = 6, wraplength = 300)
+      self.option2.place(x = 600, y = 100)
 
       #radio button 3
-      self.option3=Radiobutton(self.quiz_frame, text=question_answer[qnum][3], font=("Helvetica","12"), foreground = 'black', bg=background_color, value=3, padx=10, pady=10, variable=self.value, background = "white", activebackground='mint cream',  indicatoron = 0, highlightbackground = 'black', highlightthickness = 2, relief = RAISED, justify="left", width = 35, wraplength = 300)
-      self.option3.grid(row=4, column = 1, sticky=W, padx=10, pady = 10, ipady = 10)
+      self.option3=Radiobutton(self.quiz_frame, text=question_answer[qnum][3], font=("Helvetica","12"), foreground = 'black', value=3, padx=5, pady=5, variable=self.value, background = "white", activebackground='light gray',  indicatoron = 0, selectcolor = 'light gray', highlightbackground = '#c09891', highlightthickness = 2, relief = RAISED, justify="left", width = 35, height = 6, wraplength = 300)
+      self.option3.place(x = 200, y = 300)
 
       #radio button 4
-      self.option4=Radiobutton(self.quiz_frame, text=question_answer[qnum][4], font=("Helvetica","12"), foreground = 'black', bg=background_color, value=4, padx=10, pady=10, variable=self.value, background = "white", activebackground='mint cream',  indicatoron = 0, highlightbackground = 'black', highlightthickness = 2, relief = RAISED, justify="left", width = 35, wraplength = 300)
-      self.option4.grid(row=5, column = 1, sticky=W, padx=10, pady = 10, ipady = 10)
-
-
-      #Exit to menu button.
-      self.exit_button = Button(self.quiz_frame, text = "EXIT TO MENU", font = ("Helvetica", "14", 'bold'), foreground = 'white', bg= '#F07470', highlightthickness = 2, highlightbackground = 'white',  activebackground = '#DC1C13', command = self.exit)
-      self.exit_button.grid(row = 6, column = 0, padx = 20, pady = 20, ipadx = 20, ipady = 10)
+      self.option4=Radiobutton(self.quiz_frame, text=question_answer[qnum][4], font=("Helvetica","12"), foreground = 'black', value=4, padx=5, pady=5, variable=self.value, background = "white", activebackground='light gray',  indicatoron = 0, selectcolor = 'light gray', highlightbackground = '#c09891', highlightthickness = 2, relief = RAISED, justify="left", width = 35, height = 6, wraplength = 300)
+      self.option4.place(x = 600, y = 300)
 
       #Score label.
-      self.score_label=Label(self.quiz_frame, text="TOTAL SCORE", font=("Helvetica", "14", "bold"), foreground = 'white', bg = background_color2)
-      self.score_label.grid(row=6, column=1)
+      self.score_label=Label(self.quiz_frame, text="TOTAL SCORE", font=("Helvetica", "14", "bold"), bg = background_color, pady = 5)
+      self.score_label.place(x = 450, y = 500)
+
+      #Exit to menu button.
+      self.exit_button = Button(self.quiz_frame, text = "EXIT TO MENU", font = ("Helvetica", "14", 'bold'), foreground = 'black', bg= '#F07470', pady=10, width = 15, highlightthickness = 2, highlightbackground = 'black',  activebackground = '#DC1C13', command = self.exit)
+      self.exit_button.place(x = 80, y = 500)
+
 
       #Next button.
-      self.next_button = Button(self.quiz_frame, text = "NEXT", font = ("Helvetica", "14", 'bold'), foreground = 'white', bg= '#D9EAD3', highlightthickness = 2, highlightbackground = 'white',  activebackground = '#649568', command = self.score_calculations)
-      self.next_button.grid(row = 6, column = 2, padx = 20, pady = 20, ipadx = 20, ipady = 10)
+      self.next_button = Button(self.quiz_frame, text = "NEXT", font = ("Helvetica", "14", 'bold'), foreground = 'black', bg= '#D9EAD3', pady= 10, width = 10, highlightthickness = 2, highlightbackground = 'black',  activebackground = '#649568', command = self.score_calculations)
+      self.next_button.place(x = 800, y = 500)
     
     
   def exit(self):
