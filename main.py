@@ -245,7 +245,6 @@ class QuizPage:
       self.next_button.place(x = 800, y = 500)
 
 
-
   def exit(self):
     self.quiz_frame.destroy()
     MenuPage(base)
@@ -267,7 +266,7 @@ class QuizPage:
     option_choice = self.value.get()
     answer_text = self.answertext_label
     if len(asked)>9:
-      if choice == question_answer[qnum][6]: #If last question is right answer.
+      if option_choice == question_answer[qnum][6]: #If last question is right answer.
         score +=1
         total_score.configure(text= score)
         answer_text.configure(text="Correct!", foreground = 'green')
@@ -379,7 +378,7 @@ class DarkQuizPage:
     option_choice = self.value.get()
     answer_text = self.answertext_label
     if len(asked)>9:
-      if choice == question_answer[qnum][6]: #If last question is right answer.
+      if option_choice == question_answer[qnum][6]: #If last question is right answer.
         score +=1
         total_score.configure(text= score)
         answer_text.configure(text="Correct!", foreground = 'green')
