@@ -201,7 +201,7 @@ class QuizPage:
       self.logo_image = self.logo_image.resize((140, 120), Image.ANTIALIAS)
       self.logo_image = ImageTk.PhotoImage(self.logo_image)
       self.image_label= Label(self.quiz_frame, image=self.logo_image, borderwidth = 0)
-      self.image_label.place(x = 20, y = 10)
+      self.image_label.place(x = 20, y = 20)
 
       #question
       self.question_label = Label(self.quiz_frame, text = "Q: " + question_answer[qnum][0], font =("Helvitica","16", "bold"), foreground = 'black', bg = '#d8e9da', highlightbackground = 'black', width = 52, highlightthickness = 2, wraplength = 700)
@@ -209,35 +209,35 @@ class QuizPage:
 
       #radio button 1.
       self.option1= Radiobutton(self.quiz_frame, text=question_answer[qnum][1], font=("Helvetica","12"), foreground = 'black', value=1, padx=5, pady=5, variable = self.value, background = "white", activebackground='light gray',  indicatoron = 0, selectcolor = 'light gray', highlightbackground = '#d8e9da', highlightthickness = 2, relief = RAISED, justify="left", width = 35, height = 6, wraplength = 300)
-      self.option1.place(x = 200, y = 110)
+      self.option1.place(x = 200, y = 120)
 
       #radio button 2
       self.option2 = Radiobutton(self.quiz_frame, text=question_answer[qnum][2], font=("Helvetica","12"), foreground = 'black', value=2, padx=5, pady=5, variable=self.value, background = "white", activebackground='light gray',  indicatoron = 0, selectcolor = 'light gray', highlightbackground = '#d8e9da',  highlightthickness = 2, relief = RAISED, justify="left", width = 35, height = 6, wraplength = 300)
-      self.option2.place(x = 600, y = 110)
+      self.option2.place(x = 600, y = 120)
 
       #radio button 3
       self.option3=Radiobutton(self.quiz_frame, text=question_answer[qnum][3], font=("Helvetica","12"), foreground = 'black', value=3, padx=5, pady=5, variable=self.value, background = "white", activebackground='light gray',  indicatoron = 0, selectcolor = 'light gray', highlightbackground = '#d8e9da', highlightthickness = 2, relief = RAISED, justify="left", width = 35, height = 6, wraplength = 300)
-      self.option3.place(x = 200, y = 310)
+      self.option3.place(x = 200, y = 320)
 
       #radio button 4
       self.option4=Radiobutton(self.quiz_frame, text=question_answer[qnum][4], font=("Helvetica","12"), foreground = 'black', value=4, padx=5, pady=5, variable=self.value, background = "white", activebackground='light gray',  indicatoron = 0, selectcolor = 'light gray', highlightbackground = '#d8e9da', highlightthickness = 2, relief = RAISED, justify="left", width = 35, height = 6, wraplength = 300)
-      self.option4.place(x = 600, y = 310)
+      self.option4.place(x = 600, y = 320)
 
       #Question counter label.
       self.questioncounter_label=Label(self.quiz_frame, text="Q Num: ", font=("Helvetica", "14", "bold"), bg = background_color, highlightbackground = 'black', highlightthickness = 2, pady = 5)
-      self.questioncounter_label.place(x = 20, y = 140)
+      self.questioncounter_label.place(x = 20, y = 160)
 
       #QNumber calculated label.
       self.qnumber_label=Label(self.quiz_frame, text="....", font=("Helvetica", "14", "bold"), bg = background_color, foreground = background_color, highlightbackground = 'black', highlightthickness = 2, pady = 5)
-      self.qnumber_label.place(x = 120, y = 140)
+      self.qnumber_label.place(x = 120, y = 160)
 
       #Score label.
       self.score_label=Label(self.quiz_frame, text="TOTAL SCORE", font=("Helvetica", "14", "bold"), bg = background_color, pady = 5)
-      self.score_label.place(x = 20, y = 250)
+      self.score_label.place(x = 20, y = 270)
 
       #Calculated Score label.
       self.numberscore_label=Label(self.quiz_frame, text="....", font=("Helvetica", "16", "bold"), bg = background_color, pady = 5)
-      self.numberscore_label.place(x = 85, y = 280)
+      self.numberscore_label.place(x = 85, y = 300)
 
       #Answertext label
       self.answertext_label=Label(self.quiz_frame, text="....", font=("Helvetica", "14", "bold"), bg = background_color, foreground = background_color, pady = 5, justify='center', wraplength = 450)
@@ -245,12 +245,12 @@ class QuizPage:
 
       #Exit to menu button.
       self.exit_button = Button(self.quiz_frame, text = "EXIT TO MENU", font = ("Helvetica", "14", 'bold'), foreground = 'black', bg= '#F07470', pady=10, width = 15, highlightthickness = 2, highlightbackground = 'black',  activebackground = '#DC1C13', command = self.exit)
-      self.exit_button.place(x = 80, y = 500)
+      self.exit_button.place(x = 20, y = 530)
 
 
       #Next button.
       self.next_button = Button(self.quiz_frame, text = "NEXT", font = ("Helvetica", "14", 'bold'), foreground = 'black', bg= '#D9EAD3', pady= 10, width = 10, highlightthickness = 2, highlightbackground = 'black',  activebackground = '#649568', command = self.score_calculations)
-      self.next_button.place(x = 800, y = 500)
+      self.next_button.place(x = 870, y = 530)
 
 
   def exit(self):
@@ -362,11 +362,11 @@ class DarkQuizPage:
 
       #Score label.
       self.score_label=Label(self.quiz_frame, text="TOTAL SCORE", font=("Helvetica", "14", "bold"), bg = background_color2, pady = 5, foreground = 'white')
-      self.score_label.place(x = 20, y = 350)
+      self.score_label.place(x = 20, y = 270)
 
       #Calculated Score label.
       self.numberscore_label=Label(self.quiz_frame, text="....", font=("Helvetica", "16", "bold"), bg = background_color2, pady = 5, foreground = 'white')
-      self.numberscore_label.place(x = 82, y = 280)
+      self.numberscore_label.place(x = 85, y = 300)
 
       #Answertext label
       self.answertext_label=Label(self.quiz_frame, text="....", font=("Helvetica", "14", "bold"), bg = background_color2, pady = 5, justify='center', wraplength = 450)
@@ -375,12 +375,12 @@ class DarkQuizPage:
 
       #Exit to menu button.
       self.exit_button = Button(self.quiz_frame, text = "EXIT TO MENU", font = ("Helvetica", "14", 'bold'), foreground = 'black', bg= '#F07470', pady=10, width = 15, highlightthickness = 2, highlightbackground = 'black',  activebackground = '#DC1C13', command = self.exit)
-      self.exit_button.place(x = 80, y = 500)
+      self.exit_button.place(x = 20, y = 530)
 
 
       #Next button.
       self.next_button = Button(self.quiz_frame, text = "NEXT", font = ("Helvetica", "14", 'bold'), foreground = 'black', bg= '#D9EAD3', pady= 10, width = 10, highlightthickness = 2, highlightbackground = 'black',  activebackground = '#649568', command = self.score_calculations)
-      self.next_button.place(x = 800, y = 500)
+      self.next_button.place(x = 870, y = 530)
     
     
   def exit(self):
