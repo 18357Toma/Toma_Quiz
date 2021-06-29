@@ -240,8 +240,8 @@ class QuizPage:
       self.numberscore_label.place(x = 85, y = 300)
 
       #Answertext label
-      self.answertext_label=Label(self.quiz_frame, text="....", font=("Helvetica", "14", "bold"), bg = background_color, foreground = background_color, pady = 5, justify='center', wraplength = 450)
-      self.answertext_label.place(x = 340, y = 450)
+      self.answertext_label=Label(self.quiz_frame, text="....", font=("Helvetica", "14", "bold"), bg = background_color, foreground = background_color, pady = 5, justify='center', wraplength = 480)
+      self.answertext_label.place(x = 360, y = 480)
 
       #Exit to menu button.
       self.exit_button = Button(self.quiz_frame, text = "EXIT TO MENU", font = ("Helvetica", "14", 'bold'), foreground = 'black', bg= '#F07470', pady=10, width = 15, highlightthickness = 2, highlightbackground = 'black',  activebackground = '#DC1C13', command = self.exit)
@@ -369,8 +369,8 @@ class DarkQuizPage:
       self.numberscore_label.place(x = 85, y = 300)
 
       #Answertext label
-      self.answertext_label=Label(self.quiz_frame, text="....", font=("Helvetica", "14", "bold"), bg = background_color2, pady = 5, justify='center', wraplength = 450)
-      self.answertext_label.place(x = 340, y = 450)
+      self.answertext_label=Label(self.quiz_frame, text="....", font=("Helvetica", "14", "bold"), bg = background_color2, pady = 5, justify='center', wraplength = 480)
+      self.answertext_label.place(x = 360, y = 480)
   
 
       #Exit to menu button.
@@ -407,6 +407,7 @@ class DarkQuizPage:
     total_score = self.numberscore_label
     option_choice = self.value.get()
     answer_text = self.answertext_label
+    question_counter = self.qnumber_label
     if len(asked)>9:
       if option_choice == question_answer[qnum][6]: #If last question is right answer.
         score +=1
