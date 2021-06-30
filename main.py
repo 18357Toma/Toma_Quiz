@@ -198,43 +198,43 @@ class QuizPage:
       self.logo_image = self.logo_image.resize((140, 120), Image.ANTIALIAS)
       self.logo_image = ImageTk.PhotoImage(self.logo_image)
       self.image_label= Label(self.quiz_frame, image=self.logo_image, borderwidth = 0)
-      self.image_label.place(x = 20, y = 20)
+      self.image_label.place(x = 20, y = 40)
 
       #question
-      self.question_label = Label(self.quiz_frame, text = "Q: " + question_answer[qnum][0], font =("Helvitica","16", "bold"), foreground = 'black', bg = '#d8e9da', highlightbackground = 'black', width = 52, highlightthickness = 2, wraplength = 700)
-      self.question_label.place(x = 200, y = 20)
+      self.question_label = Label(self.quiz_frame, text = "Q: " + question_answer[qnum][0], font =("Helvitica","16", "bold"), foreground = 'black', bg = '#d8e9da', highlightbackground = 'black', pady = 5, width = 52, highlightthickness = 2, wraplength = 700)
+      self.question_label.place(x = 200, y = 40)
 
       #radio button 1.
       self.option1= Radiobutton(self.quiz_frame, text=question_answer[qnum][1], font=("Helvetica","12"), foreground = 'black', value=1, padx=5, pady=5, variable = self.value, background = "white", activebackground='light gray',  indicatoron = 0, selectcolor = 'light gray', highlightbackground = '#d8e9da', highlightthickness = 2, relief = RAISED, justify="left", width = 35, height = 6, wraplength = 300)
-      self.option1.place(x = 200, y = 120)
+      self.option1.place(x = 200, y = 160)
 
       #radio button 2
       self.option2 = Radiobutton(self.quiz_frame, text=question_answer[qnum][2], font=("Helvetica","12"), foreground = 'black', value=2, padx=5, pady=5, variable=self.value, background = "white", activebackground='light gray',  indicatoron = 0, selectcolor = 'light gray', highlightbackground = '#d8e9da',  highlightthickness = 2, relief = RAISED, justify="left", width = 35, height = 6, wraplength = 300)
-      self.option2.place(x = 600, y = 120)
+      self.option2.place(x = 600, y = 160)
 
       #radio button 3
       self.option3=Radiobutton(self.quiz_frame, text=question_answer[qnum][3], font=("Helvetica","12"), foreground = 'black', value=3, padx=5, pady=5, variable=self.value, background = "white", activebackground='light gray',  indicatoron = 0, selectcolor = 'light gray', highlightbackground = '#d8e9da', highlightthickness = 2, relief = RAISED, justify="left", width = 35, height = 6, wraplength = 300)
-      self.option3.place(x = 200, y = 320)
+      self.option3.place(x = 200, y = 340)
 
       #radio button 4
       self.option4=Radiobutton(self.quiz_frame, text=question_answer[qnum][4], font=("Helvetica","12"), foreground = 'black', value=4, padx=5, pady=5, variable=self.value, background = "white", activebackground='light gray',  indicatoron = 0, selectcolor = 'light gray', highlightbackground = '#d8e9da', highlightthickness = 2, relief = RAISED, justify="left", width = 35, height = 6, wraplength = 300)
-      self.option4.place(x = 600, y = 320)
+      self.option4.place(x = 600, y = 340)
 
       #Question counter label.
       self.questioncounter_label=Label(self.quiz_frame, text="Q Num: ", font=("Helvetica", "14", "bold"), bg = background_color, highlightbackground = 'black', highlightthickness = 2, pady = 5, padx=5)
-      self.questioncounter_label.place(x = 20, y = 160)
+      self.questioncounter_label.place(x = 20, y = 180)
 
       #QNumber calculated label.
       self.qnumber_label=Label(self.quiz_frame, text=1, font=("Helvetica", "14", "bold"), bg = background_color, highlightbackground = 'black', highlightthickness = 2, pady = 5, padx=5)
-      self.qnumber_label.place(x = 120, y = 160)
+      self.qnumber_label.place(x = 120, y = 180)
 
       #Score label.
       self.score_label=Label(self.quiz_frame, text="TOTAL SCORE", font=("Helvetica", "14", "bold"), bg = background_color, pady = 5)
-      self.score_label.place(x = 20, y = 270)
+      self.score_label.place(x = 20, y = 280)
 
       #Calculated Score label.
       self.numberscore_label=Label(self.quiz_frame, text=0, font=("Helvetica", "16", "bold"), bg = background_color, pady = 5)
-      self.numberscore_label.place(x = 85, y = 300)
+      self.numberscore_label.place(x = 85, y = 310)
 
       #Answertext label
       self.answertext_label=Label(self.quiz_frame, text="....", font=("Helvetica", "14", "bold"), bg = background_color, foreground = background_color, pady = 5, justify='center', wraplength = 480)
@@ -329,42 +329,42 @@ class DarkQuizPage:
       self.logo_image = Image.open("darktitlelogo.png")
       self.logo_image = ImageTk.PhotoImage(self.logo_image)
       self.image_label= Label(self.quiz_frame, image=self.logo_image, borderwidth = 0)
-      self.image_label.place(x = 20, y = 20)
+      self.image_label.place(x = 20, y = 40)
 
-      self.question_label = Label(self.quiz_frame, text = "Q: " + question_answer[qnum][0], font =("Helvitica","16", "bold"), foreground = 'white', bg = '#c09891', highlightbackground = 'white', width = 52, highlightthickness = 2, wraplength = 700)
-      self.question_label.place(x = 200, y = 20)
+      self.question_label = Label(self.quiz_frame, text = "Q: " + question_answer[qnum][0], font =("Helvitica","16", "bold"), foreground = 'white', bg = '#c09891', highlightbackground = 'white', pady=5, width = 52, highlightthickness = 2, wraplength = 700)
+      self.question_label.place(x = 200, y = 40)
 
       #radio button 1.
       self.option1= Radiobutton(self.quiz_frame, text=question_answer[qnum][1], font=("Helvetica","12"), foreground = 'black', value=1, padx=5, pady=5, variable = self.value, background = "white", activebackground='light gray',  indicatoron = 0, selectcolor = 'light gray', highlightbackground = '#c09891', highlightthickness = 2, relief = RAISED, justify="left", width = 35, height = 6, wraplength = 300)
-      self.option1.place(x = 200, y = 120)
+      self.option1.place(x = 200, y = 160)
 
       #radio button 2
       self.option2 = Radiobutton(self.quiz_frame, text=question_answer[qnum][2], font=("Helvetica","12"), foreground = 'black', value=2, padx=5, pady=5, variable=self.value, background = "white", activebackground='light gray',  indicatoron = 0, selectcolor = 'light gray', highlightbackground = '#c09891',  highlightthickness = 2, relief = RAISED, justify="left", width = 35, height = 6, wraplength = 300)
-      self.option2.place(x = 600, y = 120)
+      self.option2.place(x = 600, y = 160)
 
       #radio button 3
       self.option3=Radiobutton(self.quiz_frame, text=question_answer[qnum][3], font=("Helvetica","12"), foreground = 'black', value=3, padx=5, pady=5, variable=self.value, background = "white", activebackground='light gray',  indicatoron = 0, selectcolor = 'light gray', highlightbackground = '#c09891', highlightthickness = 2, relief = RAISED, justify="left", width = 35, height = 6, wraplength = 300)
-      self.option3.place(x = 200, y = 320)
+      self.option3.place(x = 200, y = 340)
 
       #radio button 4
       self.option4=Radiobutton(self.quiz_frame, text=question_answer[qnum][4], font=("Helvetica","12"), foreground = 'black', value=4, padx=5, pady=5, variable=self.value, background = "white", activebackground='light gray',  indicatoron = 0, selectcolor = 'light gray', highlightbackground = '#c09891', highlightthickness = 2, relief = RAISED, justify="left", width = 35, height = 6, wraplength = 300)
-      self.option4.place(x = 600, y = 320)
+      self.option4.place(x = 600, y = 340)
   
       #Question counter label.
       self.questioncounter_label=Label(self.quiz_frame, text="Q Num: ", font=("Helvetica", "14", "bold"), foreground = 'white', bg = background_color2, highlightbackground = 'white', highlightthickness = 2, pady = 5)
-      self.questioncounter_label.place(x = 20, y = 150)
+      self.questioncounter_label.place(x = 20, y = 180)
 
       #QNumber calculated label.
       self.qnumber_label=Label(self.quiz_frame, text="....", font=("Helvetica", "14", "bold"), bg = background_color2, foreground = 'white', highlightbackground = 'white', highlightthickness = 2, pady = 5)
-      self.qnumber_label.place(x = 120, y = 150)
+      self.qnumber_label.place(x = 120, y = 180)
 
       #Score label.
       self.score_label=Label(self.quiz_frame, text="TOTAL SCORE", font=("Helvetica", "14", "bold"), bg = background_color2, pady = 5, foreground = 'white')
-      self.score_label.place(x = 20, y = 270)
+      self.score_label.place(x = 20, y = 280)
 
       #Calculated Score label.
       self.numberscore_label=Label(self.quiz_frame, text="....", font=("Helvetica", "16", "bold"), bg = background_color2, pady = 5, foreground = 'white')
-      self.numberscore_label.place(x = 85, y = 300)
+      self.numberscore_label.place(x = 85, y = 310)
 
       #Answertext label
       self.answertext_label=Label(self.quiz_frame, text="....", font=("Helvetica", "14", "bold"), bg = background_color2, pady = 5, justify='center', wraplength = 480)
