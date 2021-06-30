@@ -10,11 +10,8 @@ background_color = "mint cream"
 background_color2 = "black"
 username_list = []
 asked = []
-score = 0
-question_number = 0
 
-#Global
-global question_answer
+
 
 question_answer = {
   1: ["It doesn’t matter how much sleep you get, you can always function your best.", "True", "False. 8 - 10 hours is recommended.", "It depends on the day.", "Any amount of sleep is okay as long as you have naps in the day.", "Varied age groups have different times recommended but from 13 - 18 years old, 8 - 10 hours sleep is suggested." , 2],
@@ -224,11 +221,11 @@ class QuizPage:
       self.option4.place(x = 600, y = 320)
 
       #Question counter label.
-      self.questioncounter_label=Label(self.quiz_frame, text="Q Num: ", font=("Helvetica", "14", "bold"), bg = background_color, highlightbackground = 'black', highlightthickness = 2, pady = 5)
+      self.questioncounter_label=Label(self.quiz_frame, text="Q Num: ", font=("Helvetica", "14", "bold"), bg = background_color, highlightbackground = 'black', highlightthickness = 2, pady = 5, padx=5)
       self.questioncounter_label.place(x = 20, y = 160)
 
       #QNumber calculated label.
-      self.qnumber_label=Label(self.quiz_frame, text="....", font=("Helvetica", "14", "bold"), bg = background_color, foreground = background_color, highlightbackground = 'black', highlightthickness = 2, pady = 5)
+      self.qnumber_label=Label(self.quiz_frame, text=1, font=("Helvetica", "14", "bold"), bg = background_color, highlightbackground = 'black', highlightthickness = 2, pady = 5, padx=5)
       self.qnumber_label.place(x = 120, y = 160)
 
       #Score label.
@@ -236,7 +233,7 @@ class QuizPage:
       self.score_label.place(x = 20, y = 270)
 
       #Calculated Score label.
-      self.numberscore_label=Label(self.quiz_frame, text="....", font=("Helvetica", "16", "bold"), bg = background_color, pady = 5)
+      self.numberscore_label=Label(self.quiz_frame, text=0, font=("Helvetica", "16", "bold"), bg = background_color, pady = 5)
       self.numberscore_label.place(x = 85, y = 300)
 
       #Answertext label
@@ -252,10 +249,13 @@ class QuizPage:
       self.next_button = Button(self.quiz_frame, text = "NEXT", font = ("Helvetica", "14", 'bold'), foreground = 'black', bg= '#D9EAD3', pady= 10, width = 10, highlightthickness = 2, highlightbackground = 'black',  activebackground = '#649568', command = self.score_calculations)
       self.next_button.place(x = 870, y = 530)
 
+      self.score = 0
+      self.question_number = 1
+
 
   def exit(self):
-    score = 0
-    question_number = 0
+    self.score = 0
+    self.question_number = 0
     self.quiz_frame.destroy()
     MenuPage(base)
 
@@ -271,41 +271,39 @@ class QuizPage:
 
   #Score calculations.
   def score_calculations(self):
-    global score
-    global question_number
     total_score = self.numberscore_label
     option_choice = self.value.get()
     answer_text = self.answertext_label
     question_counter = self.qnumber_label
     if len(asked)>9:
       if option_choice == question_answer[qnum][6]: #If last question is right answer.
-        score +=1
-        question_number +=1
-        total_score.configure(text= score)
-        question_counter.configure(text= question_number, foreground = 'black')
+        self.score +=1
+        self.question_number +=1
+        total_score.configure(text= self.score)
+        question_counter.configure(text= self.question_number, foreground = 'black')
         answer_text.configure(text="Correct!", foreground = 'green')
       else: #If last question was wrong answer.
-        score +=0
-        question_number +=1
-        total_score.configure(text= score)
-        question_counter.configure(text= question_number, foreground = 'black')
+        self.score +=0
+        self.question_number +=1
+        total_score.configure(text= self.score)
+        question_counter.configure(text= self.question_number, foreground = 'black')
         answer_text.configure(text= "Incorrect: \n" + question_answer[qnum][5], foreground = 'red')
     else:
       if option_choice == 0: #Check if user made a choice.
         answer_text.config(text="Sorry you didn't select anything, please retry", foreground = 'red')
       else: #If they made choice that isn't last question.
         if option_choice == question_answer[qnum][6]: #If user is right.
-          score+=1
-          question_number +=1
-          total_score.configure(text = score)
-          question_counter.configure(text= question_number, foreground = 'black')
+          self.score+=1
+          self.question_number +=1
+          total_score.configure(text = self.score)
+          question_counter.configure(text= self.question_number, foreground = 'black')
           answer_text.configure(text="Correct!", foreground = 'green')
           self.question_change() #Run method for next question to come up.
         else: #If the user chooses wrong answer.
-          score +=0
-          question_number +=1
-          total_score.configure(text= score)
-          question_counter.configure(text= question_number, foreground = 'black')
+          self.score +=0
+          self.question_number +=1
+          total_score.configure(text= self.score)
+          question_counter.configure(text= self.question_number, foreground = 'black')
           answer_text.configure(text="Incorrect: \n" + question_answer[qnum][5], foreground = 'red')
           self.question_change()
 
@@ -357,7 +355,7 @@ class DarkQuizPage:
       self.questioncounter_label.place(x = 20, y = 150)
 
       #QNumber calculated label.
-      self.qnumber_label=Label(self.quiz_frame, text="....", font=("Helvetica", "14", "bold"), bg = background_color2, foreground = background_color2, highlightbackground = 'white', highlightthickness = 2, pady = 5)
+      self.qnumber_label=Label(self.quiz_frame, text="....", font=("Helvetica", "14", "bold"), bg = background_color2, foreground = 'white', highlightbackground = 'white', highlightthickness = 2, pady = 5)
       self.qnumber_label.place(x = 120, y = 150)
 
       #Score label.
@@ -381,11 +379,14 @@ class DarkQuizPage:
       #Next button.
       self.next_button = Button(self.quiz_frame, text = "NEXT", font = ("Helvetica", "14", 'bold'), foreground = 'black', bg= '#D9EAD3', pady= 10, width = 10, highlightthickness = 2, highlightbackground = 'black',  activebackground = '#649568', command = self.score_calculations)
       self.next_button.place(x = 870, y = 530)
+      
+      self.score=0
+      self.question_number=0
     
     
   def exit(self):
-    score = 0
-    question_number = 0
+    self.score=0
+    self.question_number=0
     self.quiz_frame.destroy()
     DarkMenuPage(base)
 
@@ -402,42 +403,40 @@ class DarkQuizPage:
 
   #Score calculations.
   def score_calculations(self):
-    global score
-    global question_number
     total_score = self.numberscore_label
     option_choice = self.value.get()
     answer_text = self.answertext_label
     question_counter = self.qnumber_label
     if len(asked)>9:
       if option_choice == question_answer[qnum][6]: #If last question is right answer.
-        score +=1
-        question_number +=1
-        total_score.configure(text= score)
-        question_counter.configure(text= question_number, foreground = 'white')
+        self.score +=1
+        self.question_number +=1
+        total_score.configure(text= self.score)
+        question_counter.configure(text= self.question_number, foreground = 'white')
         answer_text.configure(text="Correct!", foreground = 'green')
       else: #If last question was wrong answer.
-        score +=0
-        question_number +=1
-        total_score.configure(text= score)
-        question_counter.configure(text= question_number, foreground = 'white')
-        answer_text.configure(text= "Incorrect: \n" + question_answer[qnum][5], foreground = 'red')
+        self.score +=0
+        self.question_number +=1
+        total_score.configure(text= self.score)
+        question_counter.configure(text= self.question_number, foreground = 'white')
+        answer_text.configure(text= "Incorrect: \n" + self.question_answer[qnum][5], foreground = 'red')
     else:
       if option_choice == 0: #Check if user made a choice.
         answer_text.config(text="Sorry you didn't select anything, please retry", foreground = 'red')
       else: #If they made choice that isn't last question.
         if option_choice == question_answer[qnum][6]: #If user is right.
-          score+=1
-          question_number +=1
-          total_score.configure(text = score)
-          question_counter.configure(text= question_number, foreground = 'white')
+          self.score+=1
+          self.question_number +=1
+          total_score.configure(text = self.score)
+          question_counter.configure(text= self.question_number, foreground = 'white')
           answer_text.configure(text="Correct!", foreground = 'green')
           self.question_change() #Run method for next question to come up.
         else: #If the user chooses wrong answer.
           score +=0
-          question_number +=1
-          total_score.configure(text= score)
-          question_counter.configure(text= question_number, foreground = 'white')
-          answer_text.configure(text="Incorrect: \n" + question_answer[qnum][5], foreground = 'red')
+          self.question_number +=1
+          total_score.configure(text= self.score)
+          question_counter.configure(text= self.question_number, foreground = 'white')
+          answer_text.configure(text="Incorrect: \n" + self.question_answer[qnum][5], foreground = 'red')
           self.question_change()
 
 
