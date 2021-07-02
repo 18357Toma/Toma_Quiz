@@ -312,7 +312,7 @@ class QuizPage:
 
   #Results function.
   def endResults(self):
-    self.quiz_frame.destroy()
+    QuizPage(base).destroy()
     name = username_list[0]
     file = open("scoreBoard.txt", "a") #Opens the file that has high scores from appending.
     file.write(str(score)) #The score intergers are turned into string.
@@ -473,6 +473,33 @@ class DarkQuizPage:
           answer_text.configure(text="Incorrect: \n" + self.question_answer[qnum][5], foreground = 'red')
           self.question_change()
 
+  def endResults(self):
+    self.quiz_frame.destroy()
+    name = username_list[0]
+    file = open("scoreBoard.txt", "a") #Opens the file that has high scores from appending.
+    file.write(str(score)) #The score intergers are turned into string.
+    file.write(" - ") #Text is shown in file.
+    file.write(name+"\n") #Displays name in the file and adds a line.
+    file.close() #Close file.
+
+    inputFile = open("scoreBoard.txt", "r") #Opens the score file which we can read.
+    lineList = inputFile.readlines() #Line list is equal to  each line of the list.
+    lineList.sort() #Lines are sorted in alphabetical order.
+    top = [] #Top scores are displayed.
+    top5 = (lineList[-5:]) #For top 10 these are the last 10 figures.
+    for line in top5: #For each of the lines.
+      point = line.split(" -")
+      top.append((int(point[0]), point[1]))
+    file.close() #Close file.
+    top.sort()
+    top.reverse()
+    return_string = ""
+    for i in range(len(top)):
+      return_string +="{} - {}\n".format(top[i][0], top[i][1])
+    print(return_string) #Tests are shown on the console.
+    darkresults_page = DarkResultsPage(base) #object
+    darkresults_page.scoreboard_label.config(text = return_string) #Configures scoreboard label to display top 5 names in results class.
+
 
 
 #Scoreboard class.
@@ -499,14 +526,37 @@ class ResultsPage:
     def exit(self):
       self.score = 0
       self.question_number = 0
-      self.quiz_frame.destroy()
+      self.results_frame.destroy()
       MenuPage(base)
 
 
 
-
+#Dark version Scoreboard class.
 class DarkResultsPage:
-  pass
+    def __init__(self, parent):
+      #Setting up the frame.
+      self.results_frame = Frame(parent, background = 'white')
+      base.geometry("1050x600") #Geometry used to create a fixed window size/window dimensions.
+      self.results_frame.pack(fill="both", expand=True)
+
+
+      #Title label.
+      self.title_label = Label(self.results_frame, text = "SCOREBOARD", font =("Helvitica","18", "bold"), foreground = 'white', bg = '#c09891', highlightbackground = 'black', pady = 5, width = 20, highlightthickness = 2)
+      self.title_label.place(x = 400, y = 40)
+
+      #Scoreboard label.
+      self.scoreboard_label = Label(self.results_frame, text = "scores", font =("Helvitica","18", "bold"), foreground = 'white', bg = '#c09891', highlightbackground = 'black', pady = 5, width = 20, highlightthickness = 2)
+      self.scoreboard_label.place(x = 400, y = 100)
+
+      #Exit to menu button.
+      self.exit_button = Button(self.results_frame, text = "EXIT TO MENU", font = ("Helvetica", "14", 'bold'), foreground = 'black', bg= '#F07470', pady=10, width = 15, highlightthickness = 2, highlightbackground = 'black',  activebackground = '#DC1C13', command = self.exit)
+      self.exit_button.place(x = 20, y = 530)
+
+    def exit(self):
+      self.score = 0
+      self.question_number = 0
+      self.results_frame.destroy()
+      DarkMenuPage(base)
 
 
 
