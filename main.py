@@ -479,18 +479,18 @@ class DarkQuizPage:
 class ResultsPage:
     def __init__(self, parent):
       #Setting up the frame.
-      self.results_frame = Frame(parent)
+      self.results_frame = Frame(parent, background = 'white')
       base.geometry("1050x600") #Geometry used to create a fixed window size/window dimensions.
       self.results_frame.pack(fill="both", expand=True)
 
 
       #Title label.
-      self.title_label = Label(self.results_frame, text = "SCOREBOARD", font =("Helvitica","18", "bold"), foreground = 'black', bg = '#d8e9da', highlightbackground = 'black', pady = 5, width = 52, highlightthickness = 2)
-      self.title_label.place(x = 200, y = 40)
+      self.title_label = Label(self.results_frame, text = "SCOREBOARD", font =("Helvitica","18", "bold"), foreground = 'black', bg = '#d8e9da', highlightbackground = 'black', pady = 5, width = 20, highlightthickness = 2)
+      self.title_label.place(x = 400, y = 40)
 
       #Scoreboard label.
-      self.scoreboard_label = Label(self.results_frame, text = "scores", font =("Helvitica","18", "bold"), foreground = 'black', bg = '#d8e9da', highlightbackground = 'black', pady = 5, width = 52, highlightthickness = 2)
-      self.scoreboard_label.place(x = 200, y = 100)
+      self.scoreboard_label = Label(self.results_frame, text = "scores", font =("Helvitica","18", "bold"), foreground = 'black', bg = '#d8e9da', highlightbackground = 'black', pady = 5, width = 20, highlightthickness = 2)
+      self.scoreboard_label.place(x = 400, y = 100)
 
       #Exit to menu button.
       self.exit_button = Button(self.results_frame, text = "EXIT TO MENU", font = ("Helvetica", "14", 'bold'), foreground = 'black', bg= '#F07470', pady=10, width = 15, highlightthickness = 2, highlightbackground = 'black',  activebackground = '#DC1C13', command = self.exit)
