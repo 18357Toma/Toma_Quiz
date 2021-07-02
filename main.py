@@ -10,6 +10,7 @@ background_color = "mint cream"
 background_color2 = "black"
 username_list = []
 asked = []
+score = 0
 
 
 
@@ -282,12 +283,14 @@ class QuizPage:
         total_score.configure(text= self.score)
         question_counter.configure(text= self.question_number, foreground = 'black')
         answer_text.configure(text="Correct!", foreground = 'green')
+        self.endResults()
       else: #If last question was wrong answer.
         self.score +=0
         self.question_number +=1
         total_score.configure(text= self.score)
         question_counter.configure(text= self.question_number, foreground = 'black')
         answer_text.configure(text= "Incorrect: \n" + question_answer[qnum][5], foreground = 'red')
+        self.endResults()
     else:
       if option_choice == 0: #Check if user made a choice.
         answer_text.config(text="Sorry you didn't select anything, please retry", foreground = 'red')
@@ -306,6 +309,37 @@ class QuizPage:
           question_counter.configure(text= self.question_number, foreground = 'black')
           answer_text.configure(text="Incorrect: \n" + question_answer[qnum][5], foreground = 'red')
           self.question_change()
+
+  #Results function.
+  def endResults(self):
+    self.quiz_frame.destroy()
+    name = username_list[0]
+    file = open("scoreBoard.txt", "a") #Opens the file that has high scores from appending.
+    file.write(str(score)) #The score intergers are turned into string.
+    file.write(" - ") #Text is shown in file.
+    file.write(name+"\n") #Displays name in the file and adds a line.
+    file.close() #Close file.
+
+    inputFile = open("scoreBoard.txt", "r") #Opens the score file which we can read.
+    lineList = inputFile.readlines() #Line list is equal to  each line of the list.
+    lineList.sort() #Lines are sorted in alphabetical order.
+    top = [] #Top scores are displayed.
+    top5 = (lineList[-5:]) #For top 10 these are the last 10 figures.
+    for line in top5: #For each of the lines.
+      point = line.split(" -")
+      top.append((int(point[0]), point[1]))
+    file.close() #Close file.
+    top.sort()
+    top.reverse()
+    return_string = ""
+    for i in range(len(top)):
+      return_string +="{} - {}\n".format(top[i][0], top[i][1])
+    print(return_string) #Tests are shown on the console.
+    results_page = ResultsPage(base) #object
+    results_page.scoreboard_label.config(text = return_string) #Configures scoreboard label to display top 5 names in results class.
+
+
+
 
 
 class DarkQuizPage:
@@ -355,7 +389,7 @@ class DarkQuizPage:
       self.questioncounter_label.place(x = 20, y = 180)
 
       #QNumber calculated label.
-      self.qnumber_label=Label(self.quiz_frame, text="....", font=("Helvetica", "14", "bold"), bg = background_color2, foreground = 'white', highlightbackground = 'white', highlightthickness = 2, pady = 5)
+      self.qnumber_label=Label(self.quiz_frame, text=1, font=("Helvetica", "14", "bold"), bg = background_color2, foreground = 'white', highlightbackground = 'white', highlightthickness = 2, pady = 5)
       self.qnumber_label.place(x = 120, y = 180)
 
       #Score label.
@@ -363,7 +397,7 @@ class DarkQuizPage:
       self.score_label.place(x = 20, y = 280)
 
       #Calculated Score label.
-      self.numberscore_label=Label(self.quiz_frame, text="....", font=("Helvetica", "16", "bold"), bg = background_color2, pady = 5, foreground = 'white')
+      self.numberscore_label=Label(self.quiz_frame, text=0, font=("Helvetica", "16", "bold"), bg = background_color2, pady = 5, foreground = 'white')
       self.numberscore_label.place(x = 85, y = 310)
 
       #Answertext label
@@ -438,6 +472,42 @@ class DarkQuizPage:
           question_counter.configure(text= self.question_number, foreground = 'white')
           answer_text.configure(text="Incorrect: \n" + self.question_answer[qnum][5], foreground = 'red')
           self.question_change()
+
+
+
+#Scoreboard class.
+class ResultsPage:
+    def __init__(self, parent):
+      #Setting up the frame.
+      self.results_frame = Frame(parent)
+      base.geometry("1050x600") #Geometry used to create a fixed window size/window dimensions.
+      self.results_frame.pack(fill="both", expand=True)
+
+
+      #Title label.
+      self.title_label = Label(self.results_frame, text = "SCOREBOARD", font =("Helvitica","18", "bold"), foreground = 'black', bg = '#d8e9da', highlightbackground = 'black', pady = 5, width = 52, highlightthickness = 2)
+      self.title_label.place(x = 200, y = 40)
+
+      #Scoreboard label.
+      self.scoreboard_label = Label(self.results_frame, text = "scores", font =("Helvitica","18", "bold"), foreground = 'black', bg = '#d8e9da', highlightbackground = 'black', pady = 5, width = 52, highlightthickness = 2)
+      self.scoreboard_label.place(x = 200, y = 100)
+
+      #Exit to menu button.
+      self.exit_button = Button(self.results_frame, text = "EXIT TO MENU", font = ("Helvetica", "14", 'bold'), foreground = 'black', bg= '#F07470', pady=10, width = 15, highlightthickness = 2, highlightbackground = 'black',  activebackground = '#DC1C13', command = self.exit)
+      self.exit_button.place(x = 20, y = 530)
+
+    def exit(self):
+      self.score = 0
+      self.question_number = 0
+      self.quiz_frame.destroy()
+      MenuPage(base)
+
+
+
+
+class DarkResultsPage:
+  pass
+
 
 
 #Run Programe.
