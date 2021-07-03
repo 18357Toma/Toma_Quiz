@@ -189,16 +189,16 @@ class QuizPage:
       self.bg_image = Image.open("lightbackground.png") 
       self.bg_image = ImageTk.PhotoImage(self.bg_image)
       base.configure(bg = background_color) 
-      self.image_label= Label(self.quiz_frame, image=self.bg_image)
-      self.image_label.place(x=0, y=0) # make label fit the parent window always
+      self.bg_label= Label(self.quiz_frame, image=self.bg_image)
+      self.bg_label.place(x=0, y=0) # make label fit the parent window always
 
 
       #Label widget for title logo.
       self.logo_image = Image.open("titlelogo.png") #need to use Image if need to resize
       self.logo_image = self.logo_image.resize((140, 120), Image.ANTIALIAS)
       self.logo_image = ImageTk.PhotoImage(self.logo_image)
-      self.image_label= Label(self.quiz_frame, image=self.logo_image, borderwidth = 0)
-      self.image_label.place(x = 20, y = 40)
+      self.logo_label= Label(self.quiz_frame, image=self.logo_image, borderwidth = 0)
+      self.logo_label.place(x = 20, y = 40)
 
       #question
       self.question_label = Label(self.quiz_frame, text = "Q: " + question_answer[qnum][0], font =("Helvitica","16", "bold"), foreground = 'black', bg = '#d8e9da', highlightbackground = 'black', pady = 5, width = 52, highlightthickness = 2, wraplength = 700)
@@ -355,14 +355,14 @@ class DarkQuizPage:
       self.bg_image = Image.open("darkbackground.png") 
       self.bg_image = ImageTk.PhotoImage(self.bg_image)
       base.configure(bg = background_color2) 
-      self.image_label= Label(self.quiz_frame, image=self.bg_image)
-      self.image_label.place(x=0, y=0) # make label fit the parent window always
+      self.bg_label= Label(self.quiz_frame, image=self.bg_image)
+      self.bg_label.place(x=0, y=0) # make label fit the parent window always
 
       #Label widget for title logo.
       self.logo_image = Image.open("darktitlelogo.png")
       self.logo_image = ImageTk.PhotoImage(self.logo_image)
-      self.image_label= Label(self.quiz_frame, image=self.logo_image, borderwidth = 0)
-      self.image_label.place(x = 20, y = 40)
+      self.logo_label= Label(self.quiz_frame, image=self.logo_image, borderwidth = 0)
+      self.logo_label.place(x = 20, y = 40)
 
       self.question_label = Label(self.quiz_frame, text = "Q: " + question_answer[qnum][0], font =("Helvitica","16", "bold"), foreground = 'white', bg = '#c09891', highlightbackground = 'white', pady=5, width = 52, highlightthickness = 2, wraplength = 700)
       self.question_label.place(x = 200, y = 40)
@@ -505,10 +505,24 @@ class DarkQuizPage:
 class ResultsPage:
     def __init__(self, parent):
       #Setting up the frame.
-      self.results_frame = Frame(parent, background = 'white')
+      self.results_frame = Frame(parent)
       base.geometry("1050x600") #Geometry used to create a fixed window size/window dimensions.
       self.results_frame.pack(fill="both", expand=True)
 
+
+      self.bg_image = Image.open("lightbackground.png") 
+      self.bg_image = ImageTk.PhotoImage(self.bg_image)
+      base.configure(bg = background_color) 
+      self.bg_label= Label(self.results_frame, image=self.bg_image)
+      self.bg_label.place(x=0, y=0) # make label fit the parent window always
+
+
+      #Label widget for title logo.
+      self.logo_image = Image.open("titlelogo.png") #need to use Image if need to resize
+      self.logo_image = self.logo_image.resize((140, 120), Image.ANTIALIAS)
+      self.logo_image = ImageTk.PhotoImage(self.logo_image)
+      self.logo_label= Label(self.results_frame, image=self.logo_image, borderwidth = 0)
+      self.logo_label.place(x = 20, y = 40)
 
       #Title label.
       self.title_label = Label(self.results_frame, text = "RESULTS", font =("Helvitica","18", "bold"), foreground = 'black', bg = '#d8e9da', highlightbackground = 'black', pady = 5, width = 20, highlightthickness = 2)
@@ -531,9 +545,22 @@ class ResultsPage:
 class DarkResultsPage:
     def __init__(self, parent):
       #Setting up the frame.
-      self.results_frame = Frame(parent, background = 'black')
+      self.results_frame = Frame(parent)
       base.geometry("1050x600") #Geometry used to create a fixed window size/window dimensions.
       self.results_frame.pack(fill="both", expand=True)
+
+
+      self.bg_image = Image.open("darkbackground.png") 
+      self.bg_image = ImageTk.PhotoImage(self.bg_image)
+      base.configure(bg = background_color2) 
+      self.bg_label= Label(self.results_frame, image=self.bg_image)
+      self.bg_label.place(x=0, y=0) # make label fit the parent window always
+
+      #Label widget for title logo.
+      self.logo_image = Image.open("darktitlelogo.png")
+      self.logo_image = ImageTk.PhotoImage(self.logo_image)
+      self.logo_label= Label(self.results_frame, image=self.logo_image, borderwidth = 0)
+      self.logo_label.place(x = 20, y = 40)
 
 
       #Title label.
