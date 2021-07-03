@@ -501,7 +501,6 @@ class DarkQuizPage:
     darkresults_page.scoreboard_label.config(text = return_string) #Configures scoreboard label to display top 5 names in results class.
 
 
-
 #Scoreboard class.
 class ResultsPage:
     def __init__(self, parent):
@@ -512,7 +511,7 @@ class ResultsPage:
 
 
       #Title label.
-      self.title_label = Label(self.results_frame, text = "SCOREBOARD", font =("Helvitica","18", "bold"), foreground = 'black', bg = '#d8e9da', highlightbackground = 'black', pady = 5, width = 20, highlightthickness = 2)
+      self.title_label = Label(self.results_frame, text = "RESULTS", font =("Helvitica","18", "bold"), foreground = 'black', bg = '#d8e9da', highlightbackground = 'black', pady = 5, width = 20, highlightthickness = 2)
       self.title_label.place(x = 400, y = 40)
 
       #Scoreboard label.
@@ -538,7 +537,7 @@ class DarkResultsPage:
 
 
       #Title label.
-      self.title_label = Label(self.results_frame, text = "SCOREBOARD", font =("Helvitica","18", "bold"), foreground = 'white', bg = '#c09891', highlightbackground = 'black', pady = 5, width = 20, highlightthickness = 2)
+      self.title_label = Label(self.results_frame, text = "RESULTS", font =("Helvitica","18", "bold"), foreground = 'white', bg = '#c09891', highlightbackground = 'black', pady = 5, width = 20, highlightthickness = 2)
       self.title_label.place(x = 400, y = 40)
 
       #Scoreboard label.
