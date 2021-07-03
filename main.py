@@ -314,11 +314,14 @@ class QuizPage:
     self.quiz_frame.destroy()
     name = username_list[0]
     file = open("scoreBoard.txt", "a") #Opens the file that has high scores from appending.
-    file.write(str(self.score)) #The score intergers are turned into string.
-    file.write(" - ") #Text is shown in file.
-    file.write(name+"\n") #Displays name in the file and adds a line.
-    file.close() #Close file.
-
+    if name == "reset": #Clear the file list of scores when the name 'reset' is entered.
+        file=open("scoreBoard.txt","w")
+    else:
+        file.write(str(self.score)) #The score intergers are turned into string.
+        file.write(" - ") #Text is shown in file.
+        file.write(name+"\n") #Displays name in the file and adds a line.
+        file.close() #Close file.
+    
     inputFile = open("scoreBoard.txt", "r") #Opens the score file which we can read.
     lineList = inputFile.readlines() #Line list is equal to  each line of the list.
     lineList.sort() #Lines are sorted in alphabetical order.
