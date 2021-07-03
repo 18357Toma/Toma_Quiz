@@ -447,14 +447,14 @@ class DarkQuizPage:
         total_score.configure(text= self.score)
         question_counter.configure(text= self.question_number, foreground = 'white')
         answer_text.configure(text="Correct!", foreground = 'green')
-        self.endResults()
+        self.darkEndResults()
       else: #If last question was wrong answer.
         self.score +=0
         self.question_number +=1
         total_score.configure(text= self.score)
         question_counter.configure(text= self.question_number, foreground = 'white')
-        answer_text.configure(text= "Incorrect: \n" + self.question_answer[qnum][5], foreground = 'red')
-        self.endResults()
+        answer_text.configure(text= "Incorrect: \n" + question_answer[qnum][5], foreground = 'red')
+        self.darkEndResults()
     else:
       if option_choice == 0: #Check if user made a choice.
         answer_text.config(text="Sorry you didn't select anything, please retry", foreground = 'red')
@@ -473,7 +473,7 @@ class DarkQuizPage:
           answer_text.configure(text="Incorrect: \n" + question_answer[qnum][5], foreground = 'red')
           self.question_change()
 
-  def endResults(self):
+  def darkEndResults(self):
     self.quiz_frame.destroy()
     name = username_list[0]
     file = open("scoreBoard.txt", "a") #Opens the file that has high scores from appending.
@@ -521,10 +521,10 @@ class ResultsPage:
 
       #Exit to menu button.
       self.exitquiz_button = Button(self.results_frame, text = "EXIT QUIZ", font = ("Helvetica", "14", 'bold'), foreground = 'black', bg= '#F07470', pady=10, width = 15, highlightthickness = 2, highlightbackground = 'black',  activebackground = '#DC1C13', command = self.exit)
-      self.exit_button.place(x = 20, y = 530)
+      self.exitquiz_button.place(x = 20, y = 530)
 
     def exit(self):
-       self.results_frame.destroy()
+      ResultsPage(base).destroy()
 
 
 
@@ -532,7 +532,7 @@ class ResultsPage:
 class DarkResultsPage:
     def __init__(self, parent):
       #Setting up the frame.
-      self.results_frame = Frame(parent, background = 'white')
+      self.results_frame = Frame(parent, background = 'black')
       base.geometry("1050x600") #Geometry used to create a fixed window size/window dimensions.
       self.results_frame.pack(fill="both", expand=True)
 
@@ -546,11 +546,11 @@ class DarkResultsPage:
       self.scoreboard_label.place(x = 400, y = 100)
 
       #Exit to menu button.
-      self.exit_button = Button(self.results_frame, text = "EXIT QUIZ", font = ("Helvetica", "14", 'bold'), foreground = 'black', bg= '#F07470', pady=10, width = 15, highlightthickness = 2, highlightbackground = 'black',  activebackground = '#DC1C13', command = self.exit)
-      self.exit_button.place(x = 20, y = 530)
+      self.exitquiz_button = Button(self.results_frame, text = "EXIT QUIZ", font = ("Helvetica", "14", 'bold'), foreground = 'black', bg= '#F07470', pady=10, width = 15, highlightthickness = 2, highlightbackground = 'black',  activebackground = '#DC1C13', command = self.exit)
+      self.exitquiz_button.place(x = 20, y = 530)
 
     def exit(self):
-      self.results_frame.destroy()
+      DarkResultsPage(base).destroy()
 
 
 
