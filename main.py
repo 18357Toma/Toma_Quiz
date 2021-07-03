@@ -523,7 +523,7 @@ class ResultsPage:
       self.exitquiz_button.place(x = 20, y = 530)
 
     def exit(self):
-      ResultsPage(base).destroy()
+      base.destroy()
 
 
 
@@ -549,7 +549,7 @@ class DarkResultsPage:
       self.exitquiz_button.place(x = 20, y = 530)
 
     def exit(self):
-      DarkResultsPage(base).destroy()
+      base.destroy()
 
 
 
