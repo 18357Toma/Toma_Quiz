@@ -318,29 +318,27 @@ class QuizPage:
         file=open("scoreBoard.txt","w")
     else:
         file.write(str(self.score)) #The score intergers are turned into string.
-        file.write(" - ") #Text is shown in file.
+        file.write("    ----    ") #Text is shown in file.
         file.write(name+"\n") #Displays name in the file and adds a line.
         file.close() #Close file.
-    
+
     inputFile = open("scoreBoard.txt", "r") #Opens the score file which we can read.
     lineList = inputFile.readlines() #Line list is equal to  each line of the list.
     lineList.sort() #Lines are sorted in alphabetical order.
     top = [] #Top scores are displayed.
     top5 = (lineList[-5:]) #For top 10 these are the last 10 figures.
     for line in top5: #For each of the lines.
-      point = line.split(" -")
+      point = line.split("    ----    ")
       top.append((int(point[0]), point[1]))
     file.close() #Close file.
     top.sort()
     top.reverse()
     return_string = ""
     for i in range(len(top)):
-      return_string +="{} - {}\n".format(top[i][0], top[i][1])
+      return_string +="{}    ----    {}\n".format(top[i][0], top[i][1])
     print(return_string) #Tests are shown on the console.
     results_page = ResultsPage(base) #object
     results_page.scoreboard_label.config(text = return_string) #Configures scoreboard label to display top 5 names in results class.
-
-
 
 
 
@@ -485,7 +483,7 @@ class DarkQuizPage:
         file=open("scoreBoard.txt","w")
     else:
         file.write(str(self.score)) #The score intergers are turned into string.
-        file.write(" - ") #Text is shown in file.
+        file.write("    ----    ") #Text is shown in file.
         file.write(name+"\n") #Displays name in the file and adds a line.
         file.close() #Close file.
 
@@ -495,14 +493,14 @@ class DarkQuizPage:
     top = [] #Top scores are displayed.
     top5 = (lineList[-5:]) #For top 10 these are the last 10 figures.
     for line in top5: #For each of the lines.
-      point = line.split(" - ")
+      point = line.split("    ----    ")
       top.append((int(point[0]), point[1]))
     file.close() #Close file.
     top.sort()
     top.reverse()
     return_string = ""
     for i in range(len(top)):
-      return_string +="{} - {}\n".format(top[i][0], top[i][1])
+      return_string +="{}    ----    {}\n".format(top[i][0], top[i][1])
     print(return_string) #Tests are shown on the console.
     darkresults_page = DarkResultsPage(base) #object
     darkresults_page.scoreboard_label.config(text = return_string) #Configures scoreboard label to display top 5 names in results class.
@@ -532,12 +530,16 @@ class ResultsPage:
       self.logo_label.place(x = 20, y = 40)
 
       #Title label.
-      self.title_label = Label(self.results_frame, text = "RESULTS", font =("Helvitica","24", "bold"), foreground = 'black', bg = '#d8e9da', highlightbackground = 'black', pady = 5, width = 20, highlightthickness = 2)
-      self.title_label.place(x = 350, y = 40)
+      self.title_label = Label(self.results_frame, text = "RESULTS", font =("Helvitica","20", "bold"), bg = '#d8e9da', highlightbackground = 'black', width = 20, highlightthickness = 2)
+      self.title_label.place(x = 300, y = 40)
+
+      #Description label.
+      self.description_label = Label(self.results_frame, text = "SCORE           NAME", font =("Helvitica","16", "bold"), bg = '#d8e9da', highlightbackground = 'black', width = 18, highlightthickness = 2)
+      self.description_label.place(x = 370, y = 130)
 
       #Scoreboard label.
-      self.scoreboard_label = Label(self.results_frame, text = "scores", font =("Helvitica","20", "bold"), highlightbackground = 'black', pady = 5, bg = '#d8e9da', width = 18, highlightthickness = 8)
-      self.scoreboard_label.place(x = 400, y = 110)
+      self.scoreboard_label = Label(self.results_frame, text = "scores", font =("Helvitica","14", "bold"), highlightbackground = 'black', pady = 10, bg = '#d8e9da', width = 18, highlightthickness = 8)
+      self.scoreboard_label.place(x = 380, y = 180)
 
       #Exit to menu button.
       self.exitquiz_button = Button(self.results_frame, text = "EXIT QUIZ", font = ("Helvetica", "14", 'bold'), foreground = 'black', bg= '#F07470', pady=10, width = 15, highlightthickness = 2, highlightbackground = 'black',  activebackground = '#DC1C13', command = self.exit)
@@ -569,14 +571,18 @@ class DarkResultsPage:
       self.logo_label= Label(self.results_frame, image=self.logo_image, borderwidth = 0)
       self.logo_label.place(x = 20, y = 40)
 
-
       #Title label.
-      self.title_label = Label(self.results_frame, text = "RESULTS", font =("Helvitica","24", "bold"), foreground = 'white', bg = '#c09891', highlightbackground = 'black', pady = 5, width = 20, highlightthickness = 2)
-      self.title_label.place(x = 350, y = 40)
+      self.title_label = Label(self.results_frame, text = "RESULTS", font =("Helvitica","20", "bold"), foreground = 'white', bg = '#c09891', highlightbackground = 'black', width = 20, highlightthickness = 2)
+      self.title_label.place(x = 300, y = 40)
+
+      #Description label.
+      self.description_label = Label(self.results_frame, text = "SCORE           NAME", font =("Helvitica","16", "bold"), foreground = 'white', bg = '#c09891', highlightbackground = 'black', width = 18, highlightthickness = 2)
+      self.description_label.place(x = 370, y = 130)
+
 
       #Scoreboard label.
-      self.scoreboard_label = Label(self.results_frame, text = "scores", font =("Helvitica","20", "bold"), foreground = 'white', bg = '#c09891', highlightbackground = 'white', pady = 5, width = 18, highlightthickness = 8)
-      self.scoreboard_label.place(x = 400, y = 110)
+      self.scoreboard_label = Label(self.results_frame, text = "scores", font =("Helvitica","14", "bold"), foreground = 'white', bg = '#c09891', highlightbackground = 'white', width = 18, highlightthickness = 8)
+      self.scoreboard_label.place(x = 380, y = 180)
 
       #Exit to menu button.
       self.exitquiz_button = Button(self.results_frame, text = "EXIT QUIZ", font = ("Helvetica", "14", 'bold'), foreground = 'black', bg= '#F07470', pady=10, width = 15, highlightthickness = 2, highlightbackground = 'black',  activebackground = '#DC1C13', command = self.exit)

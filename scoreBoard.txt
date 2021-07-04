@@ -1,3 +1,11 @@
-3 - toma
- - a
-3
+3    ----    toma
+3    ----    yo
+3    ----    winner
+3    ----    tank
+3    ----    t
+3    ----    r
+3    ----    race
+3    ----    a
+8    ----    winner
+5    ----    loser
+3    ----    q
