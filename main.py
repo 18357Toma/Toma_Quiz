@@ -54,7 +54,7 @@ class MenuPage:
     #Set up frame for window.
     self.menu_frame = Frame(parent)
     self.menu_frame.grid() #Grid/table structure window.
-    base.geometry("1050x600")
+    base.geometry("960x600")
 
     self.bg_image = Image.open("lightbackground.png") 
     self.bg_image = ImageTk.PhotoImage(self.bg_image)
@@ -117,7 +117,7 @@ class DarkMenuPage:
       #Setting up the frame.
       self.menu_frame = Frame(parent)
       self.menu_frame.grid() #Grid/table structure window.
-      base.geometry("1050x600") #Geometry used to create a fixed window size/window dimensions.
+      base.geometry("960x600") #Geometry used to create a fixed window size/window dimensions.
 
       self.bg_image = Image.open("darkbackground.png")
       self.bg_image = ImageTk.PhotoImage(self.bg_image)
@@ -529,10 +529,10 @@ class ResultsPage:
 
       #Title label.
       self.title_label = Label(self.results_frame, text = "RESULTS", font =("Helvitica","24", "bold"), foreground = 'black', bg = '#d8e9da', highlightbackground = 'black', pady = 5, width = 20, highlightthickness = 2)
-      self.title_label.place(x = 400, y = 40)
+      self.title_label.place(x = 350, y = 40)
 
       #Scoreboard label.
-      self.scoreboard_label = Label(self.results_frame, text = "scores", font =("Helvitica","20", "bold"), highlightbackground = '#d8e9da', pady = 5, bg = '#f5fffa', width = 23, highlightthickness = 10)
+      self.scoreboard_label = Label(self.results_frame, text = "scores", font =("Helvitica","20", "bold"), highlightbackground = 'black', pady = 5, bg = '#d8e9da', width = 18, highlightthickness = 8)
       self.scoreboard_label.place(x = 400, y = 110)
 
       #Exit to menu button.
@@ -568,10 +568,10 @@ class DarkResultsPage:
 
       #Title label.
       self.title_label = Label(self.results_frame, text = "RESULTS", font =("Helvitica","24", "bold"), foreground = 'white', bg = '#c09891', highlightbackground = 'black', pady = 5, width = 20, highlightthickness = 2)
-      self.title_label.place(x = 400, y = 40)
+      self.title_label.place(x = 350, y = 40)
 
       #Scoreboard label.
-      self.scoreboard_label = Label(self.results_frame, text = "scores", font =("Helvitica","20", "bold"), foreground = 'white', bg = 'black', highlightbackground = '#c09891', pady = 5, width = 23, highlightthickness = 10)
+      self.scoreboard_label = Label(self.results_frame, text = "scores", font =("Helvitica","20", "bold"), foreground = 'white', bg = '#c09891', highlightbackground = 'white', pady = 5, width = 22, highlightthickness = 8)
       self.scoreboard_label.place(x = 400, y = 110)
 
       #Exit to menu button.
