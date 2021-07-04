@@ -54,7 +54,7 @@ class MenuPage:
     #Set up frame for window.
     self.menu_frame = Frame(parent)
     self.menu_frame.grid() #Grid/table structure window.
-    base.geometry("960x600")
+    base.geometry("980x600")
 
     self.bg_image = Image.open("lightbackground.png") 
     self.bg_image = ImageTk.PhotoImage(self.bg_image)
@@ -117,7 +117,7 @@ class DarkMenuPage:
       #Setting up the frame.
       self.menu_frame = Frame(parent)
       self.menu_frame.grid() #Grid/table structure window.
-      base.geometry("960x600") #Geometry used to create a fixed window size/window dimensions.
+      base.geometry("980x600") #Geometry used to create a fixed window size/window dimensions.
 
       self.bg_image = Image.open("darkbackground.png")
       self.bg_image = ImageTk.PhotoImage(self.bg_image)
@@ -480,10 +480,14 @@ class DarkQuizPage:
     self.quiz_frame.destroy()
     name = username_list[0]
     file = open("scoreBoard.txt", "a") #Opens the file that has high scores from appending.
-    file.write(str(self.score)) #The score intergers are turned into string.
-    file.write(" - ") #Text is shown in file.
-    file.write(name+"\n") #Displays name in the file and adds a line.
-    file.close() #Close file.
+
+    if name == "reset": #Clear the file list of scores when the name 'reset' is entered.
+        file=open("scoreBoard.txt","w")
+    else:
+        file.write(str(self.score)) #The score intergers are turned into string.
+        file.write(" - ") #Text is shown in file.
+        file.write(name+"\n") #Displays name in the file and adds a line.
+        file.close() #Close file.
 
     inputFile = open("scoreBoard.txt", "r") #Opens the score file which we can read.
     lineList = inputFile.readlines() #Line list is equal to  each line of the list.
@@ -491,7 +495,7 @@ class DarkQuizPage:
     top = [] #Top scores are displayed.
     top5 = (lineList[-5:]) #For top 10 these are the last 10 figures.
     for line in top5: #For each of the lines.
-      point = line.split(" -")
+      point = line.split(" - ")
       top.append((int(point[0]), point[1]))
     file.close() #Close file.
     top.sort()
@@ -571,7 +575,7 @@ class DarkResultsPage:
       self.title_label.place(x = 350, y = 40)
 
       #Scoreboard label.
-      self.scoreboard_label = Label(self.results_frame, text = "scores", font =("Helvitica","20", "bold"), foreground = 'white', bg = '#c09891', highlightbackground = 'white', pady = 5, width = 22, highlightthickness = 8)
+      self.scoreboard_label = Label(self.results_frame, text = "scores", font =("Helvitica","20", "bold"), foreground = 'white', bg = '#c09891', highlightbackground = 'white', pady = 5, width = 18, highlightthickness = 8)
       self.scoreboard_label.place(x = 400, y = 110)
 
       #Exit to menu button.
