@@ -1,11 +1,4 @@
-3    ----    toma
-3    ----    yo
-3    ----    winner
-3    ----    tank
-3    ----    t
-3    ----    r
-3    ----    race
-3    ----    a
-8    ----    winner
-5    ----    loser
-3    ----    q
+5    ----    tah
+3    ----    Nico
+2    ----    toma
+6    ----    tina
