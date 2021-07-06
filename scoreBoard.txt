@@ -1,4 +1,1 @@
-5    ----    tah
-3    ----    Nico
-2    ----    toma
-6    ----    tina
+3    ----    konnichiwa
