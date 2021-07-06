@@ -47,7 +47,6 @@ def shuffle():
     shuffle()
 
 
-
 #Menu page class (first window, light theme).
 class MenuPage:
   def __init__(self, parent): #Putting class on the parent frame, self identifies the class.
@@ -77,7 +76,6 @@ class MenuPage:
     #Enter name box which is used by the user to input their name.
     self.entry_box = Entry(self.menu_frame)
     self.entry_box.grid(row = 3, column = 1, padx = 20, pady = 20, ipadx = 80, ipady = 10) #Placement of the widget.
-
 
     #Dark theme button.
     self.theme1_button = Button(self.menu_frame, text = "Dark theme", font = ("Helvetica","14", 'bold'), foreground = 'black', bg = background_color, background = "dark gray", highlightthickness = 2, highlightbackground = 'black', activebackground = 'light gray', padx = 10, pady = 10, relief = RAISED, command = self.dark_theme) #Attributes of the widgets. Button is commanded to perform a method.
@@ -112,6 +110,7 @@ class MenuPage:
       elif len(name) >10:
         messagebox.showerror("Name error:", "Please check that you have entered a name up to 10 characters.")
 
+
 #Dark menu page class for first window.
 class DarkMenuPage:
     def __init__(self, parent):
@@ -119,7 +118,7 @@ class DarkMenuPage:
         self.menu_frame = Frame(parent)
         self.menu_frame.grid() #Grid/table structure window.
         base.geometry("980x600") #Geometry used to create a fixed window size/window dimensions.
-
+        #Code for background image.
         self.bg_image = Image.open("darkbackground.png")
         self.bg_image = ImageTk.PhotoImage(self.bg_image)
         base.configure(bg = background_color2)
@@ -194,7 +193,6 @@ class QuizPage:
       self.bg_label = Label(self.quiz_frame, image = self.bg_image)
       self.bg_label.place(x = 0, y = 0) #Make label fit the parent window always
 
-
       #Label widget for title logo.
       self.logo_image = Image.open("titlelogo.png") #Need to use Image if need to resize.
       self.logo_image = self.logo_image.resize((140, 120), Image.ANTIALIAS)
@@ -246,7 +244,6 @@ class QuizPage:
       #Exit to menu button.
       self.exit_button = Button(self.quiz_frame, text = "EXIT TO MENU", font = ("Helvetica", "14", 'bold'), foreground = 'black', bg = '#F07470', pady = 10, width = 15, highlightthickness = 2, highlightbackground = 'black',  activebackground = '#DC1C13', command = self.exit) #Attributes.
       self.exit_button.place(x = 20, y = 530) #Widget Placement.
-
 
       #Next button.
       self.next_button = Button(self.quiz_frame, text = "NEXT", font = ("Helvetica", "14", 'bold'), foreground = 'black', bg = '#D9EAD3', pady = 10, width = 10, highlightthickness = 2, highlightbackground = 'black',  activebackground = '#649568', command = self.score_calculations) #Attributes.
@@ -346,7 +343,6 @@ class QuizPage:
       results_page.scoreboard_label.config(text = return_string) #Configures scoreboard label to display top 5 names in results class.
 
 
-
 #Class for dark quiz page window.
 class DarkQuizPage:
   def __init__(self, parent):
@@ -356,9 +352,9 @@ class DarkQuizPage:
       base.geometry("1050x600") #Geometry used to create a fixed window size/window dimensions.
 
       shuffle() #Randomise quesitons.
-
       self.value = IntVar() #Holds the value of radio buttons.
 
+      #Background image label code.
       self.bg_image = Image.open("darkbackground.png") 
       self.bg_image = ImageTk.PhotoImage(self.bg_image)
       base.configure(bg = background_color2) 
@@ -409,12 +405,10 @@ class DarkQuizPage:
       #Answertext label
       self.answertext_label = Label(self.quiz_frame, text = "....", font = ("Helvetica", "14", "bold"), bg = background_color2, pady = 5, justify = 'center', wraplength = 480) #Attributes.
       self.answertext_label.place(x = 360, y = 480) #Placement.
-  
 
       #Exit to menu button.
       self.exit_button = Button(self.quiz_frame, text = "EXIT TO MENU", font = ("Helvetica", "14", 'bold'), foreground = 'black', bg = '#F07470', pady = 10, width = 15, highlightthickness = 2, highlightbackground = 'black',  activebackground = '#DC1C13', command = self.exit) #Attributes.
       self.exit_button.place(x = 20, y = 530) #Placement.
-
 
       #Next button.
       self.next_button = Button(self.quiz_frame, text = "NEXT", font = ("Helvetica", "14", 'bold'), foreground = 'black', bg = '#D9EAD3', pady = 10, width = 10, highlightthickness = 2, highlightbackground = 'black',  activebackground = '#649568', command = self.score_calculations) #Attributes.
@@ -429,7 +423,6 @@ class DarkQuizPage:
       self.question_number = 0
       self.quiz_frame.destroy() #Destroys frame of quiz.
       DarkMenuPage(base) #Root dark menu page.
-
 
 #Question setup.
   def question_change(self):
@@ -486,7 +479,7 @@ class DarkQuizPage:
       self.quiz_frame.destroy() #Destroy the quiz frame for quiz page.
       name = username_list[0] #Creates the username list with names.
       file = open("scoreBoard.txt", "a") #Opens the file that has high scores from appending.
-
+      #If/else statement for username entered.
       if name == "reset": #Clear the file list of scores when the name 'reset' is entered.
           file = open("scoreBoard.txt","w")
       else:
@@ -529,7 +522,6 @@ class ResultsPage:
       self.bg_label = Label(self.results_frame, image = self.bg_image)
       self.bg_label.place(x = 0, y = 0) # make label fit the parent window always
 
-
       #Label widget for title logo.
       self.logo_image = Image.open("titlelogo.png") #need to use Image if need to resize
       self.logo_image = self.logo_image.resize((140, 120), Image.ANTIALIAS)
@@ -556,7 +548,6 @@ class ResultsPage:
     #Method to destroy the window.
     def exit(self):
         base.destroy()
-
 
 
 #Dark version of results page class for scoreboard window.
@@ -587,7 +578,6 @@ class DarkResultsPage:
       #Description label.
       self.description_label = Label(self.results_frame, text = "SCORE           NAME", font =("Helvitica","16", "bold"), foreground = 'white', bg = '#c09891', highlightbackground = 'black', width = 18, highlightthickness = 2) #Attributes.
       self.description_label.place(x = 370, y = 130) #Placement.
-
 
       #Scoreboard label.
       self.scoreboard_label = Label(self.results_frame, text = "scores", font = ("Helvitica","14", "bold"), foreground = 'white', bg = '#c09891', highlightbackground = 'white', width = 18, highlightthickness = 8) #Attributes.
