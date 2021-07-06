@@ -59,19 +59,19 @@ class MenuPage:
     self.bg_image = Image.open("lightbackground.png") 
     self.bg_image = ImageTk.PhotoImage(self.bg_image)
     base.configure(bg = background_color) 
-    self.image_label= Label(self.menu_frame, image=self.bg_image)
-    self.image_label.place(x=0, y=0) #Make label fit the parent window.
+    self.image_label= Label(self.menu_frame, image = self.bg_image)
+    self.image_label.place(x = 0, y = 0) #Make label fit the parent window.
     #Making the title image file the label in window.
     self.title_image = Image.open("quiztitle.png")
     #To resize the image with width and height dimensions.
     self.title_image = self.title_image.resize((500, 100), Image.ANTIALIAS)
     self.title_image = ImageTk.PhotoImage(self.title_image)
     #Label widget for title image.
-    self.heading_label = Label(self.menu_frame, image=self.title_image, borderwidth = 0) #The label is text.
+    self.heading_label = Label(self.menu_frame, image = self.title_image, borderwidth = 0) #The label is text.
     self.heading_label.grid(row = 1, column = 1, padx = 10) #Placement of the widget.
 
     #Subtitle text.
-    self.user_label = Label(self.menu_frame, text="Hi there! \n \n Enter your name below and press start to begin:", font = ("Helvetica","16"), bg = background_color) #Attributes of the widget.
+    self.user_label = Label(self.menu_frame, text = "Hi there! \n \n Enter your name below and press start to begin:", font = ("Helvetica","16"), bg = background_color) #Attributes of the widget.
     self.user_label.grid(row = 2, column = 1, padx = 20, pady = 20) #Placement of the widget.
 
     #Enter name box which is used by the user to input their name.
@@ -80,11 +80,11 @@ class MenuPage:
 
 
     #Dark theme button.
-    self.theme1_button = Button(self.menu_frame, text = "Dark theme", font = ("Helvetica","14", 'bold'), foreground = 'black', bg = background_color, background = "dark gray", highlightthickness = 2, highlightbackground = 'black', activebackground = 'light gray', padx=10, pady=10, relief = RAISED, command = self.dark_theme) #Attributes of the widgets. Button is commanded to perform a method.
+    self.theme1_button = Button(self.menu_frame, text = "Dark theme", font = ("Helvetica","14", 'bold'), foreground = 'black', bg = background_color, background = "dark gray", highlightthickness = 2, highlightbackground = 'black', activebackground = 'light gray', padx = 10, pady = 10, relief = RAISED, command = self.dark_theme) #Attributes of the widgets. Button is commanded to perform a method.
     self.theme1_button.grid(row = 0, column = 0, pady = 20, padx = 20) #Placement of the widget.
 
     #Light theme button.
-    self.theme2_button = Button(self.menu_frame, text = "Light theme", font = ("Helvetica","14", 'bold'), foreground = 'black', bg = background_color, background = "white", highlightthickness = 2, highlightbackground = 'black',  activebackground = 'light gray', padx=10, pady=10, relief = RAISED) #Attributes of the widget.
+    self.theme2_button = Button(self.menu_frame, text = "Light theme", font = ("Helvetica","14", 'bold'), foreground = 'black', bg = background_color, background = "white", highlightthickness = 2, highlightbackground = 'black',  activebackground = 'light gray', padx = 10, pady = 10, relief = RAISED) #Attributes of the widget.
     self.theme2_button.grid(row = 0, column = 2, pady = 20, padx = 20) #Placement of the widget.
 
     #Start button.
@@ -124,14 +124,14 @@ class DarkMenuPage:
         self.bg_image = ImageTk.PhotoImage(self.bg_image)
         base.configure(bg = background_color2)
         self.image_label= Label(self.menu_frame, image = self.bg_image)
-        self.image_label.place(x=0, y=0) #Make label fit the parent window.
+        self.image_label.place(x = 0, y = 0) #Make label fit the parent window.
 
         #Image label for title.
         self.title_image = Image.open("darkquiztitle.png") #Need to use Image if need to resize.
         self.title_image = self.title_image.resize((500, 100), Image.ANTIALIAS)
         self.title_image = ImageTk.PhotoImage(self.title_image)
         #Label widget for title image.
-        self.heading_label = Label(self.menu_frame, image=self.title_image, borderwidth = 0) #The label is text.
+        self.heading_label = Label(self.menu_frame, image = self.title_image, borderwidth = 0) #The label is text.
         self.heading_label.grid(row = 1, column = 1, padx = 10) #Widget Placement.
 
         #Subtitle text.
@@ -144,11 +144,11 @@ class DarkMenuPage:
         self.value = IntVar() #Holds the value of radio buttons.
 
         #Dark theme button.
-        self.theme1_button = Button(self.menu_frame, text = "Dark theme", font = ("Helvetica","14", 'bold'), foreground = 'white', bg = background_color, background = "dark gray", highlightthickness = 2, highlightbackground = 'white', activebackground = 'light gray',  padx=10, pady=10, relief = RAISED) #Attributes.
+        self.theme1_button = Button(self.menu_frame, text = "Dark theme", font = ("Helvetica","14", 'bold'), foreground = 'white', bg = background_color, background = "dark gray", highlightthickness = 2, highlightbackground = 'white', activebackground = 'light gray',  padx = 10, pady = 10, relief = RAISED) #Attributes.
         self.theme1_button.grid(row = 0, column = 0, pady = 20, padx = 20) #Widget Placement.
 
         #Light theme button.
-        self.theme2_button = Button(self.menu_frame, text = "Light theme", font = ("Helvetica","14", 'bold'), foreground = 'black', bg = background_color, background = "white", highlightthickness = 2, highlightbackground = 'white',  activebackground = 'light gray',  padx=10, pady=10, relief = RAISED, command = self.light_theme) #Attributes.
+        self.theme2_button = Button(self.menu_frame, text = "Light theme", font = ("Helvetica","14", 'bold'), foreground = 'black', bg = background_color, background = "white", highlightthickness = 2, highlightbackground = 'white',  activebackground = 'light gray',  padx = 10, pady = 10, relief = RAISED, command = self.light_theme) #Attributes.
         self.theme2_button.grid(row = 0, column = 2, pady = 20, padx = 20) #Widget Placement.
       
         #Start button.
@@ -163,15 +163,15 @@ class DarkMenuPage:
   #Name Colection.
     def name_collection(self):
         name = self.entry_box.get()
-        if str.isalpha(name) == True and len(name) >0 and len(name) <=10:
+        if str.isalpha(name) == True and len(name) >0 and len(name) <= 10:
           username_list.append(name)
           self.menu_frame.destroy() #destroy the starter
           DarkQuizPage(base)
-        elif str.isalpha(name) == False and len(name) >0:
+        elif str.isalpha(name) == False and len(name) > 0:
           messagebox.showerror("Name error:", "Please check that you are only using letters and no other characters or numerals.")
-        elif len(name) <1:
+        elif len(name) < 1:
           messagebox.showerror("Name error:", "Please check that you have entered a name.")
-        elif len(name) >10 and str.isalpha(name) == True:
+        elif len(name) > 10 and str.isalpha(name) == True:
           messagebox.showerror("Name error:", "Please check that you have entered a name up to 10 characters.")
 
 
@@ -181,7 +181,7 @@ class QuizPage:
       #Setting up the frame.
       self.quiz_frame = Frame(parent)
       base.geometry("1050x600") #Geometry used to create a fixed window size/window dimensions.
-      self.quiz_frame.pack(fill="both", expand=True) #So that place technique can work.
+      self.quiz_frame.pack(fill = "both", expand = True) #So that place technique can work.
 
       shuffle() #Method to randomise the questions.
 
@@ -191,66 +191,67 @@ class QuizPage:
       self.bg_image = Image.open("lightbackground.png") 
       self.bg_image = ImageTk.PhotoImage(self.bg_image)
       base.configure(bg = background_color) 
-      self.bg_label= Label(self.quiz_frame, image=self.bg_image)
-      self.bg_label.place(x=0, y=0) #Make label fit the parent window always
+      self.bg_label = Label(self.quiz_frame, image = self.bg_image)
+      self.bg_label.place(x = 0, y = 0) #Make label fit the parent window always
 
 
       #Label widget for title logo.
       self.logo_image = Image.open("titlelogo.png") #Need to use Image if need to resize.
       self.logo_image = self.logo_image.resize((140, 120), Image.ANTIALIAS)
       self.logo_image = ImageTk.PhotoImage(self.logo_image)
-      self.logo_label= Label(self.quiz_frame, image=self.logo_image, borderwidth = 0)
+      self.logo_label= Label(self.quiz_frame, image = self.logo_image, borderwidth = 0)
       self.logo_label.place(x = 20, y = 40) #Widget Placement.
 
       #Question label that is configured to say different questions in the dictionary keys.
-      self.question_label = Label(self.quiz_frame, text = "Q: " + question_answer[qnum][0], font =("Helvitica","16", "bold"), foreground = 'black', bg = '#d8e9da', highlightbackground = 'black', pady = 5, width = 52, highlightthickness = 2, wraplength = 700) #Attributes.
+      self.question_label = Label(self.quiz_frame, text = "Q: " + question_answer[qnum][0], font = ("Helvitica","16", "bold"), foreground = 'black', bg = '#d8e9da', highlightbackground = 'black', pady = 5, width = 52, highlightthickness = 2, wraplength = 700) #Attributes.
       self.question_label.place(x = 200, y = 40) #Widget Placement.
 
       #Radio buttons are configured to be the answers of each question and hold values of those options in the dictionary keys.
       #Option 1 button.
-      self.option1= Radiobutton(self.quiz_frame, text=question_answer[qnum][1], font=("Helvetica","12"), foreground = 'black', value=1, padx=5, pady=5, variable = self.value, background = "white", activebackground='light gray',  indicatoron = 0, selectcolor = 'light gray', highlightbackground = '#d8e9da', highlightthickness = 2, relief = RAISED, justify="left", width = 35, height = 6, wraplength = 300) #Attributes.
+      self.option1 = Radiobutton(self.quiz_frame, text = question_answer[qnum][1], font = ("Helvetica","12"), foreground = 'black', value = 1, padx = 5, pady = 5, variable = self.value, background = "white", activebackground = 'light gray',  indicatoron = 0, selectcolor = 'light gray', highlightbackground = '#d8e9da', highlightthickness = 2, relief = RAISED, justify = "left", width = 35, height = 6, wraplength = 300) #Attributes.
       self.option1.place(x = 200, y = 160) #Widget Placement.
 
       #Option 2 button.
-      self.option2 = Radiobutton(self.quiz_frame, text=question_answer[qnum][2], font=("Helvetica","12"), foreground = 'black', value=2, padx=5, pady=5, variable=self.value, background = "white", activebackground='light gray',  indicatoron = 0, selectcolor = 'light gray', highlightbackground = '#d8e9da',  highlightthickness = 2, relief = RAISED, justify="left", width = 35, height = 6, wraplength = 300) #Attributes.
+      self.option2 = Radiobutton(self.quiz_frame, text = question_answer[qnum][2], font = ("Helvetica","12"), foreground = 'black', value = 2, padx = 5, pady = 5, variable = self.value, background = "white", activebackground = 'light gray',  indicatoron = 0, selectcolor = 'light gray', highlightbackground = '#d8e9da',  highlightthickness = 2, relief = RAISED, justify = "left", width = 35, height = 6, wraplength = 300) #Attributes.
       self.option2.place(x = 600, y = 160) #Widget Placement.
 
       #Option 3 button.
-      self.option3=Radiobutton(self.quiz_frame, text=question_answer[qnum][3], font=("Helvetica","12"), foreground = 'black', value=3, padx=5, pady=5, variable=self.value, background = "white", activebackground='light gray',  indicatoron = 0, selectcolor = 'light gray', highlightbackground = '#d8e9da', highlightthickness = 2, relief = RAISED, justify="left", width = 35, height = 6, wraplength = 300) #Attributes.
+      self.option3 = Radiobutton(self.quiz_frame, text = question_answer[qnum][3], font = ("Helvetica","12"), foreground = 'black', value = 3, padx = 5, pady = 5, variable = self.value, background = "white", activebackground = 'light gray',  indicatoron = 0, selectcolor = 'light gray', highlightbackground = '#d8e9da', highlightthickness = 2, relief = RAISED, justify = "left", width = 35, height = 6, wraplength = 300) #Attributes.
       self.option3.place(x = 200, y = 340) #Widget Placement.
 
       #Option 4 button.
-      self.option4=Radiobutton(self.quiz_frame, text=question_answer[qnum][4], font=("Helvetica","12"), foreground = 'black', value=4, padx=5, pady=5, variable=self.value, background = "white", activebackground='light gray',  indicatoron = 0, selectcolor = 'light gray', highlightbackground = '#d8e9da', highlightthickness = 2, relief = RAISED, justify="left", width = 35, height = 6, wraplength = 300) #Attributes.
+      self.option4 = Radiobutton(self.quiz_frame, text = question_answer[qnum][4], font = ("Helvetica","12"), foreground = 'black', value = 4, padx = 5, pady = 5, variable = self.value, background = "white", activebackground = 'light gray',  indicatoron = 0, selectcolor = 'light gray', highlightbackground = '#d8e9da', highlightthickness = 2, relief = RAISED, justify = "left", width = 35, height = 6, wraplength = 300) #Attributes.
       self.option4.place(x = 600, y = 340) #Widget Placement.
 
       #Question counter label.
-      self.questioncounter_label=Label(self.quiz_frame, text="Q Num: ", font=("Helvetica", "14", "bold"), bg = background_color, highlightbackground = 'black', highlightthickness = 2, pady = 5, padx=5) #Attributes.
+      self.questioncounter_label = Label(self.quiz_frame, text = "Q Num: ", font = ("Helvetica", "14", "bold"), bg = background_color, highlightbackground = 'black', highlightthickness = 2, pady = 5, padx = 5) #Attributes.
       self.questioncounter_label.place(x = 20, y = 180) #Widget Placement.
 
       #QNumber calculated label.
-      self.qnumber_label=Label(self.quiz_frame, text=1, font=("Helvetica", "14", "bold"), bg = background_color, highlightbackground = 'black', highlightthickness = 2, pady = 5, padx=5) #Attributes.
+      self.qnumber_label = Label(self.quiz_frame, text = 1, font = ("Helvetica", "14", "bold"), bg = background_color, highlightbackground = 'black', highlightthickness = 2, pady = 5, padx = 5) #Attributes.
       self.qnumber_label.place(x = 120, y = 180) #Widget Placement.
 
       #Score label.
-      self.score_label=Label(self.quiz_frame, text="TOTAL SCORE", font=("Helvetica", "14", "bold"), bg = background_color, pady = 5) #Attributes.
+      self.score_label = Label(self.quiz_frame, text = "TOTAL SCORE", font = ("Helvetica", "14", "bold"), bg = background_color, pady = 5) #Attributes.
       self.score_label.place(x = 20, y = 280) #Widget Placement.
 
       #Calculated Score label.
-      self.numberscore_label=Label(self.quiz_frame, text=0, font=("Helvetica", "16", "bold"), bg = background_color, pady = 5) #Attributes.
+      self.numberscore_label = Label(self.quiz_frame, text = 0, font = ("Helvetica", "16", "bold"), bg = background_color, pady = 5) #Attributes.
       self.numberscore_label.place(x = 85, y = 310) #Widget Placement.
 
       #Answertext label
-      self.answertext_label=Label(self.quiz_frame, text="....", font=("Helvetica", "14", "bold"), bg = background_color, foreground = background_color, pady = 5, justify='center', wraplength = 480) #Attributes.
+      self.answertext_label = Label(self.quiz_frame, text = "....", font = ("Helvetica", "14", "bold"), bg = background_color, foreground = background_color, pady = 5, justify = 'center', wraplength = 480) #Attributes.
       self.answertext_label.place(x = 360, y = 480) #Widget Placement.
 
       #Exit to menu button.
-      self.exit_button = Button(self.quiz_frame, text = "EXIT TO MENU", font = ("Helvetica", "14", 'bold'), foreground = 'black', bg= '#F07470', pady=10, width = 15, highlightthickness = 2, highlightbackground = 'black',  activebackground = '#DC1C13', command = self.exit) #Attributes.
+      self.exit_button = Button(self.quiz_frame, text = "EXIT TO MENU", font = ("Helvetica", "14", 'bold'), foreground = 'black', bg = '#F07470', pady = 10, width = 15, highlightthickness = 2, highlightbackground = 'black',  activebackground = '#DC1C13', command = self.exit) #Attributes.
       self.exit_button.place(x = 20, y = 530) #Widget Placement.
 
 
       #Next button.
-      self.next_button = Button(self.quiz_frame, text = "NEXT", font = ("Helvetica", "14", 'bold'), foreground = 'black', bg= '#D9EAD3', pady= 10, width = 10, highlightthickness = 2, highlightbackground = 'black',  activebackground = '#649568', command = self.score_calculations) #Attributes.
+      self.next_button = Button(self.quiz_frame, text = "NEXT", font = ("Helvetica", "14", 'bold'), foreground = 'black', bg = '#D9EAD3', pady = 10, width = 10, highlightthickness = 2, highlightbackground = 'black',  activebackground = '#649568', command = self.score_calculations) #Attributes.
       self.next_button.place(x = 870, y = 530) #Widget Placement.
+
       #Creating instances of score variable and question number variable to be used through the classes.
       self.score = 0
       self.question_number = 1
@@ -266,7 +267,7 @@ class QuizPage:
   def question_change(self):
       shuffle() #Randomises questions.
       self.value.set(0) #Sets value to 0.
-      self.question_label.config(text= "Q: " + question_answer[qnum][0]) #Configure question label to be the question in a key from dictionary.
+      self.question_label.config(text = "Q: " + question_answer[qnum][0]) #Configure question label to be the question in a key from dictionary.
       self.option1.config(text = question_answer[qnum][1]) #Radio button options become the answers from a key in dictionary.
       self.option2.config(text = question_answer[qnum][2])
       self.option3.config(text = question_answer[qnum][3])
@@ -281,36 +282,36 @@ class QuizPage:
       question_counter = self.qnumber_label
       if len(asked)>9: #If the last question (10th) is asked.
         if option_choice == question_answer[qnum][6]: #If last question is right answer.
-          self.score +=1 #Add to score if answer right.
-          self.question_number +=1 #Add to question number.
-          total_score.configure(text= self.score) #Configures the score label to the new score.
-          question_counter.configure(text= self.question_number, foreground = 'black') #Configures question number label to next question number.
-          answer_text.configure(text="Correct!", foreground = 'green') #Configures the answer label to say correct when user selects right answer.
+          self.score += 1 #Add to score if answer right.
+          self.question_number += 1 #Add to question number.
+          total_score.configure(text = self.score) #Configures the score label to the new score.
+          question_counter.configure(text = self.question_number, foreground = 'black') #Configures question number label to next question number.
+          answer_text.configure(text = "Correct!", foreground = 'green') #Configures the answer label to say correct when user selects right answer.
           self.endResults() #Calls the method to set up the file for scoreboard.
         else: #If last question was wrong answer.
-          self.score +=0 #No value added to score because answer was incorrect.
-          self.question_number +=1
-          total_score.configure(text= self.score)
-          question_counter.configure(text= self.question_number, foreground = 'black')
-          answer_text.configure(text= "Incorrect: \n" + question_answer[qnum][5], foreground = 'red') #Configure answer text to say user is incorrect and why.
+          self.score += 0 #No value added to score because answer was incorrect.
+          self.question_number += 1
+          total_score.configure(text = self.score)
+          question_counter.configure(text = self.question_number, foreground = 'black')
+          answer_text.configure(text = "Incorrect: \n" + question_answer[qnum][5], foreground = 'red') #Configure answer text to say user is incorrect and why.
           self.endResults()
       else:
         if option_choice == 0: #Check if user made a choice.
-          answer_text.config(text="Sorry you didn't select anything, please retry", foreground = 'red')
+          answer_text.config(text = "Sorry you didn't select anything, please retry", foreground = 'red')
         else: #If they made choice that isn't last question.
           if option_choice == question_answer[qnum][6]: #If user is right.
-            self.score+=1
-            self.question_number +=1
+            self.score += 1
+            self.question_number += 1
             total_score.configure(text = self.score)
-            question_counter.configure(text= self.question_number, foreground = 'black')
-            answer_text.configure(text="Correct!", foreground = 'green')
+            question_counter.configure(text = self.question_number, foreground = 'black')
+            answer_text.configure(text = "Correct!", foreground = 'green')
             self.question_change() #Run method for next question to come up.
           else: #If the user chooses wrong answer.
-            self.score +=0
-            self.question_number +=1
-            total_score.configure(text= self.score)
-            question_counter.configure(text= self.question_number, foreground = 'black')
-            answer_text.configure(text="Incorrect: \n" + question_answer[qnum][5], foreground = 'red')
+            self.score += 0
+            self.question_number += 1
+            total_score.configure(text = self.score)
+            question_counter.configure(text = self.question_number, foreground = 'black')
+            answer_text.configure(text = "Incorrect: \n" + question_answer[qnum][5], foreground = 'red')
             self.question_change()
 
   #Results function.
@@ -319,7 +320,7 @@ class QuizPage:
       name = username_list[0]
       file = open("scoreBoard.txt", "a") #Opens the file that has high scores from appending.
       if name == "reset": #Clear the file list of scores when the name 'reset' is entered.
-          file=open("scoreBoard.txt","w")
+          file = open("scoreBoard.txt","w")
       else:
           file.write(str(self.score)) #The score intergers are turned into string.
           file.write("    ----    ") #Text is shown in file.
@@ -339,7 +340,7 @@ class QuizPage:
       top.reverse()
       return_string = ""
       for i in range(len(top)):
-        return_string +="{}    ----    {}\n".format(top[i][0], top[i][1])
+        return_string += "{}    ----    {}\n".format(top[i][0], top[i][1])
       print(return_string) #Tests are shown on the console.
       results_page = ResultsPage(base) #object
       results_page.scoreboard_label.config(text = return_string) #Configures scoreboard label to display top 5 names in results class.
@@ -351,81 +352,81 @@ class DarkQuizPage:
   def __init__(self, parent):
       #Setting up the frame.
       self.quiz_frame = Frame(parent)
-      self.quiz_frame.pack(fill="both", expand=True) #So that place technique works.
+      self.quiz_frame.pack(fill = "both", expand = True) #So that place technique works.
       base.geometry("1050x600") #Geometry used to create a fixed window size/window dimensions.
 
       shuffle() #Randomise quesitons.
 
-      self.value=IntVar() #Holds the value of radio buttons.
+      self.value = IntVar() #Holds the value of radio buttons.
 
       self.bg_image = Image.open("darkbackground.png") 
       self.bg_image = ImageTk.PhotoImage(self.bg_image)
       base.configure(bg = background_color2) 
-      self.bg_label= Label(self.quiz_frame, image=self.bg_image)
-      self.bg_label.place(x=0, y=0) # make label fit the parent window always
+      self.bg_label = Label(self.quiz_frame, image = self.bg_image)
+      self.bg_label.place(x = 0, y = 0) # make label fit the parent window always
 
       #Label widget for title logo.
       self.logo_image = Image.open("darktitlelogo.png")
       self.logo_image = ImageTk.PhotoImage(self.logo_image)
-      self.logo_label= Label(self.quiz_frame, image=self.logo_image, borderwidth = 0) #Attributes.
+      self.logo_label = Label(self.quiz_frame, image = self.logo_image, borderwidth = 0) #Attributes.
       self.logo_label.place(x = 20, y = 40) #Placement.
 
-      self.question_label = Label(self.quiz_frame, text = "Q: " + question_answer[qnum][0], font =("Helvitica","16", "bold"), foreground = 'white', bg = '#c09891', highlightbackground = 'white', pady=5, width = 52, highlightthickness = 2, wraplength = 700) #Attributes.
+      self.question_label = Label(self.quiz_frame, text = "Q: " + question_answer[qnum][0], font = ("Helvitica","16", "bold"), foreground = 'white', bg = '#c09891', highlightbackground = 'white', pady = 5, width = 52, highlightthickness = 2, wraplength = 700) #Attributes.
       self.question_label.place(x = 200, y = 40) #Placement.
 
       #Option 1 radio button.
-      self.option1= Radiobutton(self.quiz_frame, text=question_answer[qnum][1], font=("Helvetica","12"), foreground = 'black', value=1, padx=5, pady=5, variable = self.value, background = "white", activebackground='light gray',  indicatoron = 0, selectcolor = 'light gray', highlightbackground = '#c09891', highlightthickness = 2, relief = RAISED, justify="left", width = 35, height = 6, wraplength = 300) #Attributes.
+      self.option1 = Radiobutton(self.quiz_frame, text = question_answer[qnum][1], font = ("Helvetica","12"), foreground = 'black', value = 1, padx = 5, pady = 5, variable = self.value, background = "white", activebackground = 'light gray',  indicatoron = 0, selectcolor = 'light gray', highlightbackground = '#c09891', highlightthickness = 2, relief = RAISED, justify = "left", width = 35, height = 6, wraplength = 300) #Attributes.
       self.option1.place(x = 200, y = 160) #Placement.
 
       #Option 2 radio button.
-      self.option2 = Radiobutton(self.quiz_frame, text=question_answer[qnum][2], font=("Helvetica","12"), foreground = 'black', value=2, padx=5, pady=5, variable=self.value, background = "white", activebackground='light gray',  indicatoron = 0, selectcolor = 'light gray', highlightbackground = '#c09891',  highlightthickness = 2, relief = RAISED, justify="left", width = 35, height = 6, wraplength = 300) #Attributes.
+      self.option2 = Radiobutton(self.quiz_frame, text=question_answer[qnum][2], font = ("Helvetica","12"), foreground = 'black', value = 2, padx=  5, pady = 5, variable = self.value, background = "white", activebackground = 'light gray',  indicatoron = 0, selectcolor = 'light gray', highlightbackground = '#c09891',  highlightthickness = 2, relief = RAISED, justify = "left", width = 35, height = 6, wraplength = 300) #Attributes.
       self.option2.place(x = 600, y = 160) #Placement.
 
       #Option 3 radio button.
-      self.option3=Radiobutton(self.quiz_frame, text=question_answer[qnum][3], font=("Helvetica","12"), foreground = 'black', value=3, padx=5, pady=5, variable=self.value, background = "white", activebackground='light gray',  indicatoron = 0, selectcolor = 'light gray', highlightbackground = '#c09891', highlightthickness = 2, relief = RAISED, justify="left", width = 35, height = 6, wraplength = 300) #Attributes.
+      self.option3 = Radiobutton(self.quiz_frame, text = question_answer[qnum][3], font = ("Helvetica","12"), foreground = 'black', value = 3, padx = 5, pady = 5, variable = self.value, background = "white", activebackground = 'light gray',  indicatoron = 0, selectcolor = 'light gray', highlightbackground = '#c09891', highlightthickness = 2, relief = RAISED, justify = "left", width = 35, height = 6, wraplength = 300) #Attributes.
       self.option3.place(x = 200, y = 340) #Placement.
 
       #Option 4 radio button.
-      self.option4=Radiobutton(self.quiz_frame, text=question_answer[qnum][4], font=("Helvetica","12"), foreground = 'black', value=4, padx=5, pady=5, variable=self.value, background = "white", activebackground='light gray',  indicatoron = 0, selectcolor = 'light gray', highlightbackground = '#c09891', highlightthickness = 2, relief = RAISED, justify="left", width = 35, height = 6, wraplength = 300) #Attributes.
+      self.option4 = Radiobutton(self.quiz_frame, text = question_answer[qnum][4], font = ("Helvetica","12"), foreground = 'black', value = 4, padx = 5, pady = 5, variable = self.value, background = "white", activebackground = 'light gray',  indicatoron = 0, selectcolor = 'light gray', highlightbackground = '#c09891', highlightthickness = 2, relief = RAISED, justify = "left", width = 35, height = 6, wraplength = 300) #Attributes.
       self.option4.place(x = 600, y = 340) #Placement.
   
       #Question counter label.
-      self.questioncounter_label=Label(self.quiz_frame, text="Q Num: ", font=("Helvetica", "14", "bold"), foreground = 'white', bg = background_color2, highlightbackground = 'white', highlightthickness = 2, pady = 5) #Attributes.
+      self.questioncounter_label = Label(self.quiz_frame, text = "Q Num: ", font = ("Helvetica", "14", "bold"), foreground = 'white', bg = background_color2, highlightbackground = 'white', highlightthickness = 2, pady = 5) #Attributes.
       self.questioncounter_label.place(x = 20, y = 180) #Placement.
 
       #QNumber calculated label.
-      self.qnumber_label=Label(self.quiz_frame, text=1, font=("Helvetica", "14", "bold"), bg = background_color2, foreground = 'white', highlightbackground = 'white', highlightthickness = 2, pady = 5) #Attributes.
+      self.qnumber_label = Label(self.quiz_frame, text = 1, font = ("Helvetica", "14", "bold"), bg = background_color2, foreground = 'white', highlightbackground = 'white', highlightthickness = 2, pady = 5) #Attributes.
       self.qnumber_label.place(x = 120, y = 180) #Placement.
 
       #Score label.
-      self.score_label=Label(self.quiz_frame, text="TOTAL SCORE", font=("Helvetica", "14", "bold"), bg = background_color2, pady = 5, foreground = 'white') #Attributes.
+      self.score_label = Label(self.quiz_frame, text = "TOTAL SCORE", font = ("Helvetica", "14", "bold"), bg = background_color2, pady = 5, foreground = 'white') #Attributes.
       self.score_label.place(x = 20, y = 280) #Placement.
 
       #Calculated Score label.
-      self.numberscore_label=Label(self.quiz_frame, text=0, font=("Helvetica", "16", "bold"), bg = background_color2, pady = 5, foreground = 'white') #Attributes.
+      self.numberscore_label = Label(self.quiz_frame, text = 0, font = ("Helvetica", "16", "bold"), bg = background_color2, pady = 5, foreground = 'white') #Attributes.
       self.numberscore_label.place(x = 85, y = 310) #Placement.
 
       #Answertext label
-      self.answertext_label=Label(self.quiz_frame, text="....", font=("Helvetica", "14", "bold"), bg = background_color2, pady = 5, justify='center', wraplength = 480) #Attributes.
+      self.answertext_label = Label(self.quiz_frame, text = "....", font = ("Helvetica", "14", "bold"), bg = background_color2, pady = 5, justify = 'center', wraplength = 480) #Attributes.
       self.answertext_label.place(x = 360, y = 480) #Placement.
   
 
       #Exit to menu button.
-      self.exit_button = Button(self.quiz_frame, text = "EXIT TO MENU", font = ("Helvetica", "14", 'bold'), foreground = 'black', bg= '#F07470', pady=10, width = 15, highlightthickness = 2, highlightbackground = 'black',  activebackground = '#DC1C13', command = self.exit) #Attributes.
+      self.exit_button = Button(self.quiz_frame, text = "EXIT TO MENU", font = ("Helvetica", "14", 'bold'), foreground = 'black', bg = '#F07470', pady = 10, width = 15, highlightthickness = 2, highlightbackground = 'black',  activebackground = '#DC1C13', command = self.exit) #Attributes.
       self.exit_button.place(x = 20, y = 530) #Placement.
 
 
       #Next button.
-      self.next_button = Button(self.quiz_frame, text = "NEXT", font = ("Helvetica", "14", 'bold'), foreground = 'black', bg= '#D9EAD3', pady= 10, width = 10, highlightthickness = 2, highlightbackground = 'black',  activebackground = '#649568', command = self.score_calculations) #Attributes.
+      self.next_button = Button(self.quiz_frame, text = "NEXT", font = ("Helvetica", "14", 'bold'), foreground = 'black', bg = '#D9EAD3', pady = 10, width = 10, highlightthickness = 2, highlightbackground = 'black',  activebackground = '#649568', command = self.score_calculations) #Attributes.
       self.next_button.place(x = 870, y = 530) #Placement.
       
-      self.score=0 #Score instance = 0.
-      self.question_number=0 #The question number instance = 0.
+      self.score = 0 #Score instance = 0.
+      self.question_number = 0 #The question number instance = 0.
     
   #Method to exit the quiz page and open dark menu page.
   def exit(self):
-      self.score=0
-      self.question_number=0
+      self.score = 0
+      self.question_number = 0
       self.quiz_frame.destroy() #Destroys frame of quiz.
       DarkMenuPage(base) #Root dark menu page.
 
@@ -434,7 +435,7 @@ class DarkQuizPage:
   def question_change(self):
       shuffle() #Randomise questions.
       self.value.set(0) #Value set to 0.
-      self.question_label.config(text= "Q: " + question_answer[qnum][0]) #Label configure for question.
+      self.question_label.config(text = "Q: " + question_answer[qnum][0]) #Label configure for question.
       #Configures for radio buttons of options.
       self.option1.config(text = question_answer[qnum][1])
       self.option2.config(text = question_answer[qnum][2])
@@ -447,37 +448,37 @@ class DarkQuizPage:
       option_choice = self.value.get()
       answer_text = self.answertext_label
       question_counter = self.qnumber_label
-      if len(asked)>9:
+      if len(asked) > 9:
         if option_choice == question_answer[qnum][6]: #If last question is right answer.
-          self.score +=1
-          self.question_number +=1
-          total_score.configure(text= self.score)
-          question_counter.configure(text= self.question_number, foreground = 'white')
-          answer_text.configure(text="Correct!", foreground = 'green')
+          self.score += 1
+          self.question_number += 1
+          total_score.configure(text = self.score)
+          question_counter.configure(text = self.question_number, foreground = 'white')
+          answer_text.configure(text = "Correct!", foreground = 'green')
           self.darkEndResults()
         else: #If last question was wrong answer.
-          self.score +=0
-          self.question_number +=1
-          total_score.configure(text= self.score)
-          question_counter.configure(text= self.question_number, foreground = 'white')
-          answer_text.configure(text= "Incorrect: \n" + question_answer[qnum][5], foreground = 'red')
+          self.score += 0
+          self.question_number += 1
+          total_score.configure(text = self.score)
+          question_counter.configure(text = self.question_number, foreground = 'white')
+          answer_text.configure(text = "Incorrect: \n" + question_answer[qnum][5], foreground = 'red')
           self.darkEndResults()
       else:
         if option_choice == 0: #Check if user made a choice.
-          answer_text.config(text="Sorry you didn't select anything, please retry", foreground = 'red')
+          answer_text.config(text ="Sorry you didn't select anything, please retry", foreground = 'red')
         else: #If they made choice that isn't last question.
           if option_choice == question_answer[qnum][6]: #If user is right.
-            self.score+=1
-            self.question_number +=1
+            self.score += 1
+            self.question_number += 1
             total_score.configure(text = self.score)
-            question_counter.configure(text= self.question_number, foreground = 'white')
-            answer_text.configure(text="Correct!", foreground = 'green')
+            question_counter.configure(text = self.question_number, foreground = 'white')
+            answer_text.configure(text = "Correct!", foreground = 'green')
             self.question_change() #Run method for next question to come up.
           else: #If the user chooses wrong answer.
-            self.question_number +=1
-            total_score.configure(text= self.score)
-            question_counter.configure(text= self.question_number, foreground = 'white')
-            answer_text.configure(text="Incorrect: \n" + question_answer[qnum][5], foreground = 'red')
+            self.question_number += 1
+            total_score.configure(text = self.score)
+            question_counter.configure(text = self.question_number, foreground = 'white')
+            answer_text.configure(text = "Incorrect: \n" + question_answer[qnum][5], foreground = 'red')
             self.question_change()
 
   #Method to open file for list of appended usernames and scores, this is used in my last window results pages.
@@ -487,11 +488,11 @@ class DarkQuizPage:
       file = open("scoreBoard.txt", "a") #Opens the file that has high scores from appending.
 
       if name == "reset": #Clear the file list of scores when the name 'reset' is entered.
-          file=open("scoreBoard.txt","w")
+          file = open("scoreBoard.txt","w")
       else:
           file.write(str(self.score)) #The score intergers are turned into string.
           file.write("    ----    ") #Text is shown in file.
-          file.write(name+"\n") #Displays name in the file and adds a line.
+          file.write(name + "\n") #Displays name in the file and adds a line.
           file.close() #Close file.
 
       inputFile = open("scoreBoard.txt", "r") #Opens the score file which we can read.
@@ -507,9 +508,9 @@ class DarkQuizPage:
       top.reverse() #Reverses the list order.
       return_string = ""
       for i in range(len(top)): #The names and score displayed from the list.
-        return_string +="{}    ----    {}\n".format(top[i][0], top[i][1]) #Space between name and score.
+        return_string += "{}    ----    {}\n".format(top[i][0], top[i][1]) #Space between name and score.
       print(return_string) #Tests are shown on the console.
-      darkresults_page = DarkResultsPage(base) #Object.
+      darkresults = DarkResultsPage(base) #Object.
       darkresults_page.scoreboard_label.config(text = return_string) #Configures scoreboard label to display top 5 names in results class.
 
 
@@ -519,25 +520,25 @@ class ResultsPage:
       #Setting up the frame.
       self.results_frame = Frame(parent)
       base.geometry("1050x600") #Geometry used to create a fixed window size/window dimensions.
-      self.results_frame.pack(fill="both", expand=True) #So that place technique can work.
+      self.results_frame.pack(fill = "both", expand = True) #So that place technique can work.
 
       #Background image of window.
       self.bg_image = Image.open("lightbackground.png") 
       self.bg_image = ImageTk.PhotoImage(self.bg_image)
       base.configure(bg = background_color) 
-      self.bg_label= Label(self.results_frame, image=self.bg_image)
-      self.bg_label.place(x=0, y=0) # make label fit the parent window always
+      self.bg_label = Label(self.results_frame, image = self.bg_image)
+      self.bg_label.place(x = 0, y = 0) # make label fit the parent window always
 
 
       #Label widget for title logo.
       self.logo_image = Image.open("titlelogo.png") #need to use Image if need to resize
       self.logo_image = self.logo_image.resize((140, 120), Image.ANTIALIAS)
       self.logo_image = ImageTk.PhotoImage(self.logo_image)
-      self.logo_label= Label(self.results_frame, image=self.logo_image, borderwidth = 0) #Attributes.
+      self.logo_label = Label(self.results_frame, image = self.logo_image, borderwidth = 0) #Attributes.
       self.logo_label.place(x = 20, y = 40) #Placement.
 
       #Title label.
-      self.title_label = Label(self.results_frame, text = "RESULTS", font =("Helvitica","20", "bold"), bg = '#d8e9da', highlightbackground = 'black', width = 20, highlightthickness = 2) #Attributes.
+      self.title_label = Label(self.results_frame, text = "RESULTS", font = ("Helvitica","20", "bold"), bg = '#d8e9da', highlightbackground = 'black', width = 20, highlightthickness = 2) #Attributes.
       self.title_label.place(x = 300, y = 40) #Placement.
 
       #Description label.
@@ -545,16 +546,16 @@ class ResultsPage:
       self.description_label.place(x = 370, y = 130) #Placement.
 
       #Scoreboard label.
-      self.scoreboard_label = Label(self.results_frame, text = "scores", font =("Helvitica","14", "bold"), highlightbackground = 'black', pady = 10, bg = '#d8e9da', width = 18, highlightthickness = 8) #Attributes.
+      self.scoreboard_label = Label(self.results_frame, text = "scores", font = ("Helvitica","14", "bold"), highlightbackground = 'black', pady = 10, bg = '#d8e9da', width = 18, highlightthickness = 8) #Attributes.
       self.scoreboard_label.place(x = 380, y = 180) #Placement.
 
       #Exit to menu button.
-      self.exitquiz_button = Button(self.results_frame, text = "EXIT QUIZ", font = ("Helvetica", "14", 'bold'), foreground = 'black', bg= '#F07470', pady=10, width = 15, highlightthickness = 2, highlightbackground = 'black',  activebackground = '#DC1C13', command = self.exit) #Attributes.
+      self.exitquiz_button = Button(self.results_frame, text = "EXIT QUIZ", font = ("Helvetica", "14", 'bold'), foreground = 'black', bg= '#F07470', pady = 10, width = 15, highlightthickness = 2, highlightbackground = 'black',  activebackground = '#DC1C13', command = self.exit) #Attributes.
       self.exitquiz_button.place(x = 20, y = 530) #Placement.
 
     #Method to destroy the window.
     def exit(self):
-      base.destroy()
+        base.destroy()
 
 
 
@@ -564,23 +565,23 @@ class DarkResultsPage:
       #Setting up the frame.
       self.results_frame = Frame(parent)
       base.geometry("1050x600") #Geometry used to create a fixed window size/window dimensions.
-      self.results_frame.pack(fill="both", expand=True) #So that place technique can work.
+      self.results_frame.pack(fill = "both", expand = True) #So that place technique can work.
 
       #Background image of window.
       self.bg_image = Image.open("darkbackground.png") 
       self.bg_image = ImageTk.PhotoImage(self.bg_image)
       base.configure(bg = background_color2) 
-      self.bg_label= Label(self.results_frame, image=self.bg_image)
-      self.bg_label.place(x=0, y=0) #Make label fit the parent window always
+      self.bg_label = Label(self.results_frame, image = self.bg_image)
+      self.bg_label.place(x = 0, y = 0) #Make label fit the parent window always
 
       #Label widget for title logo.
       self.logo_image = Image.open("darktitlelogo.png")
       self.logo_image = ImageTk.PhotoImage(self.logo_image)
-      self.logo_label= Label(self.results_frame, image=self.logo_image, borderwidth = 0) #Attributes.
+      self.logo_label = Label(self.results_frame, image = self.logo_image, borderwidth = 0) #Attributes.
       self.logo_label.place(x = 20, y = 40) #Placement.
 
       #Title label.
-      self.title_label = Label(self.results_frame, text = "RESULTS", font =("Helvitica","20", "bold"), foreground = 'white', bg = '#c09891', highlightbackground = 'black', width = 20, highlightthickness = 2) #Attributes.
+      self.title_label = Label(self.results_frame, text = "RESULTS", font = ("Helvitica","20", "bold"), foreground = 'white', bg = '#c09891', highlightbackground = 'black', width = 20, highlightthickness = 2) #Attributes.
       self.title_label.place(x = 300, y = 40) #Placement.
 
       #Description label.
@@ -589,11 +590,11 @@ class DarkResultsPage:
 
 
       #Scoreboard label.
-      self.scoreboard_label = Label(self.results_frame, text = "scores", font =("Helvitica","14", "bold"), foreground = 'white', bg = '#c09891', highlightbackground = 'white', width = 18, highlightthickness = 8) #Attributes.
+      self.scoreboard_label = Label(self.results_frame, text = "scores", font = ("Helvitica","14", "bold"), foreground = 'white', bg = '#c09891', highlightbackground = 'white', width = 18, highlightthickness = 8) #Attributes.
       self.scoreboard_label.place(x = 380, y = 180) #Placement.
 
       #Exit to menu button.
-      self.exitquiz_button = Button(self.results_frame, text = "EXIT QUIZ", font = ("Helvetica", "14", 'bold'), foreground = 'black', bg= '#F07470', pady=10, width = 15, highlightthickness = 2, highlightbackground = 'black',  activebackground = '#DC1C13', command = self.exit) #Attributes.
+      self.exitquiz_button = Button(self.results_frame, text = "EXIT QUIZ", font = ("Helvetica", "14", 'bold'), foreground = 'black', bg = '#F07470', pady = 10, width = 15, highlightthickness = 2, highlightbackground = 'black',  activebackground = '#DC1C13', command = self.exit) #Attributes.
       self.exitquiz_button.place(x = 20, y = 530) #Placement.
 
     #Method to destroy window.
