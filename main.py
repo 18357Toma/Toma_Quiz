@@ -37,6 +37,7 @@ question_answer = {
   10: ["What shouldn’t you do to someone who is having a rough time with their mental wellbeing?" , "Give them coffee." , "Suggest different ways of distractions such as  colouring a book." , "Offer them to go out into a better space or even go for a run with them." , "Punch them." , "Just don’t punch them." , 4],
 }
 
+
 #Randomiser function which shuffles the keys in the dictionary.
 def shuffle():
   global qnum 
@@ -503,7 +504,7 @@ class DarkQuizPage:
       for i in range(len(top)): #The names and score displayed from the list.
         return_string += "{}    ----    {}\n".format(top[i][0], top[i][1]) #Space between name and score.
       print(return_string) #Tests are shown on the console.
-      darkresults = DarkResultsPage(base) #Object.
+      darkresults_page = DarkResultsPage(base) #Object.
       darkresults_page.scoreboard_label.config(text = return_string) #Configures scoreboard label to display top 5 names in results class.
 
 
